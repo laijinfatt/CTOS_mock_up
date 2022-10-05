@@ -39,6 +39,16 @@
                                   @endif
                               </div>
                           </div>
+
+                          <div class="form-group row">
+                              <label for="type" class="col-md-4 col-form-label text-md-right">Type</label>
+                              <div class="col-md-6">
+                                  <input type="number" id="type" class="form-control" name="type" value="2" required default>
+                                  @if ($errors->has('type'))
+                                      <span class="text-danger">{{ $errors->first('type') }}</span>
+                                  @endif
+                              </div>
+                          </div>
   
                           <div class="form-group row">
                               <div class="col-md-6 offset-md-4">

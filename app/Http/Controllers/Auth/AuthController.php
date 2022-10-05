@@ -18,9 +18,9 @@ class AuthController extends Controller
 
     }
 
-    public function registration(){
+    public function agentRegistration(){
 
-        return view('auth.registration');
+        return view('auth.agentRegistration');
 
     }
 
@@ -47,6 +47,7 @@ class AuthController extends Controller
             'name' => 'required',
             'password' => 'required',
             'email' => 'required',
+            'type' => 'required'
         ]);
 
         $data = $request->all();

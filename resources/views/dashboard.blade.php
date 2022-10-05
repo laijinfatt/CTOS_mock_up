@@ -14,6 +14,9 @@
                     @endif
   
                     You are Logged In
+                    
+                    <a class="nav-link" href="{{ route('agent.register') }}">Register an agent here!</a>
+                
                 </div>
             </div>
         </div>
