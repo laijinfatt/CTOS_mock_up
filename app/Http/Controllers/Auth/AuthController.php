@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 // here is the code for settling login,register,logout function
 class AuthController extends Controller
@@ -21,6 +22,12 @@ class AuthController extends Controller
     public function agentRegistration(){
 
         return view('auth.agentRegistration');
+
+    }
+
+    public function userRegistration(){
+
+        return view('auth.userRegistration');
 
     }
 
@@ -42,14 +49,17 @@ class AuthController extends Controller
     }
 
     public function postRegistration(Request $request){
-
+        
         $request->validate([
             'name' => 'required',
             'password' => 'required',
             'email' => 'required',
-            'type' => 'required'
+            'type' => 'required',
+            'handphone_number' => 'nullable',
+            'status' => 'nullable',
+            'gender' => 'nullable',
         ]);
-
+    
         $data = $request->all();
         $check = $this->create($data);
 
@@ -64,18 +74,34 @@ class AuthController extends Controller
 
         return redirect('login')->withSuccess('You do not have access to this page!');
     }
-
+    
+    //for agent create
     public function create(array $data){
 
         return User::create([
             'name' => $data['name'],
             'password' => Hash::make($data['password']),
             'email' => $data['email'],
+            'handphone_number' => $data['handphone_number'],
+            'gender' => $data['gender'],
+            'status' => $data['status'],
+            'type' => $data['type']
         ]);
     }
 
-    public function logout(){
+    public function view()
+    {
+        $viewUsers = User::all();
+        return view("auth.showUser")->with("users",$viewUsers);
+    }
 
+    public function edit()
+    {
+        
+    }
+
+    public function logout()
+    {
         Session::flush();
         Auth::logout();
 

@@ -17,6 +17,7 @@
                     You are Logged In
                     
                     <a class="nav-link" href="{{ route('agent.register') }}">Register an agent here!</a>
+                    <a class="nav-link" href="{{ route('user.register') }}">Register new member here!</a>
                 
                 </div>
                 @elseif(auth()->user()->isAgent())
@@ -31,7 +32,20 @@
   
                     You are Logged In as an agent. 
                     
-                    <a class="nav-link" href="#">Register new user here!</a>
+                    <a class="nav-link" href="{{ route('user.register') }}">Register new member here!</a>
+                
+                </div>
+                @elseif(auth()->user()->isMember())
+                <div class="card-header">{{ __('Member Dashboard') }}</div>
+  
+                <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+  
+                    You are Logged In as a member. 
                 
                 </div>
                 @endif

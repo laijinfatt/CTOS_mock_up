@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
 
-class IsAgent
+class IsMember
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class IsAgent
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard($guard)->user()->can(UserPolicy::AGENT, User::class)) {
+        if (Auth::guard($guard)->user()->can(UserPolicy::MEMBER, User::class)) {
             return $next($request);
         }
 

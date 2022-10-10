@@ -71,4 +71,9 @@ class User extends Authenticatable
     {
         return $this->type() === self::AGENT;
     }
+
+    public function isMember(): bool
+    {
+        return $this->type() === self::DEFAULT;
+    }
 }

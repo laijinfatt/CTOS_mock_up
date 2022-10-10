@@ -11,6 +11,7 @@ class UserPolicy
 
     const ADMIN = 'admin';
     const AGENT = 'agent';
+    const MEMBER = 'member';
 
     public function admin(User $user): bool
     {
@@ -20,5 +21,10 @@ class UserPolicy
     public function agent(User $user): bool
     {
         return $user->isAgent();
+    }
+
+    public function member(User $user): bool
+    {
+        return $user->isMember();
     }
 }
