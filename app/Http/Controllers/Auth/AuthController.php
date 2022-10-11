@@ -75,7 +75,6 @@ class AuthController extends Controller
         return redirect('login')->withSuccess('You do not have access to this page!');
     }
     
-    //for member create
     public function create(array $data){
         
         return User::create([
@@ -95,16 +94,44 @@ class AuthController extends Controller
         return view("auth.showUser")->with("users",$viewUsers);
     }
 
-    public function edit($id)
+    public function editMember($id)
     {
-        $users = User::all()->where('id',$id);
+        $members = User::all()->where('id',$id);
 
-        return view('auth.editUser')->with('users',$users);
+        return view('auth.editMember')->with('users',$members);
     }
 
-    public function update()
+    public function editAgent($id)
     {
+        $agents = User::all()->where('id',$id);
 
+        return view('auth.editAgent')->with('users',$agents);
+    }
+
+    public function update(Request $r)
+    {
+        $users = User::find($r->id);
+        $r->validate([
+            'name' => 'required',
+            'password' => 'required',
+            'email' => 'required',
+            'handphone_number' => 'nullable',
+            'gender' => 'nullable',
+            'status' => 'nullable',
+            'ic' => 'nullable',
+            'bank_account_number' => 'nullable',
+            'bank_company' => 'nullable'
+        ]);
+
+        $users->name = $r->name;
+        $users->password = $r->password;
+        $users->email = $r->email;
+        $users->handphone_number = $r->handphone_number;
+        $users->gender = $r->gender;
+        $users->status = $r->status;
+        $users->ic = $r->ic;
+        $users->bank_account_number = $r->bank_account_number;
+        $users->bank_company = $r->bank_company;
     }
 
     public function logout()

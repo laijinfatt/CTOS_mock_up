@@ -28,7 +28,9 @@ Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.pos
 Route::get('agent-registration', [AuthController::class, 'agentRegistration'])->name('agent.register');
 Route::get('user-registration', [AuthController::class, 'userRegistration'])->name('user.register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-
+Route::get('agent-edit', [AuthController::class, 'editAgent'])->name('agent.edit');
+Route::get('member-edit', [AuthController::class, 'editMember'])->name('member.edit');
+Route::get('view-users',[AuthController::class, 'viewUser'])->name('user.view');
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
