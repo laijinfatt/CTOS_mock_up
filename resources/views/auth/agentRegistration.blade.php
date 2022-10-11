@@ -10,6 +10,8 @@
   
                       <form action="{{ route('register.post') }}" method="POST">
                           @csrf
+                          <input type="hidden" id="handphone_number" name="handphone_number" value="">
+                          <input type="hidden" id="status" name="status" value="">
                           <div class="form-group row">
                               <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                               <div class="col-md-6">
@@ -43,11 +45,19 @@
                           <div class="form-group row">
                               <label for="type" class="col-md-4 col-form-label text-md-right">Type</label>
                               <div class="col-md-6">
-                                  <input type="number" id="type" class="form-control" name="type" value="2" required>
+                                  <input type="number" id="type" class="form-control" name="type" value="2" min="2" max="2" required>
                                   @if ($errors->has('type'))
                                       <span class="text-danger">{{ $errors->first('type') }}</span>
                                   @endif
                               </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="gender">Gender</label><br>
+                                <input type="radio" id="gender" name="gender" value="Male">
+                                <label for="Male" style="font-size:14px;">Male</label>&nbsp
+                                <input type="radio" id="gender" name="gender" value="Female">
+                                <label for="female" style="font-size:14px;">Female</label>
                           </div>
   
                           <div class="form-group row">

@@ -75,9 +75,9 @@ class AuthController extends Controller
         return redirect('login')->withSuccess('You do not have access to this page!');
     }
     
-    //for agent create
+    //for member create
     public function create(array $data){
-
+        
         return User::create([
             'name' => $data['name'],
             'password' => Hash::make($data['password']),
@@ -95,9 +95,16 @@ class AuthController extends Controller
         return view("auth.showUser")->with("users",$viewUsers);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        
+        $users = User::all()->where('id',$id);
+
+        return view('auth.editUser')->with('users',$users);
+    }
+
+    public function update()
+    {
+
     }
 
     public function logout()

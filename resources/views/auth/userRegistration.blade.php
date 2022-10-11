@@ -26,7 +26,7 @@
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control"placeholder="Email" id="email" name="email" required autofocus>
+                        <input type="email" class="form-control" placeholder="Email" id="email" name="email" required autofocus>
                         @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif
