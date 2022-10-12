@@ -91,27 +91,27 @@ class AuthController extends Controller
     public function viewAgent()
     {
         $users = DB::table('users')->select('users.*')->where('type','2')->get();
-        return view("auth.showAgent")->with(["users" => $users]);
+        return view("pages.showAgent")->with(["users" => $users]);
     }
 
     public function viewMember()
     {
         $users = User::all()->where('type','1');
-        return view("auth.showMember")->with(["users" => $users]);
+        return view("pages.showMember")->with(["users" => $users]);
     }
 
     public function editMember($id)
     {
-        $members = User::all()->where('id',$id);
+        $users = User::all()->where('id',$id);
 
-        return view('auth.editMember')->with('users',$members);
+        return view('pages.editMember')->with(["users" => $users]);
     }
 
     public function editAgent($id)
     {
-        $agents = User::all()->where('id',$id);
+        $users = User::all()->where('id',$id);
 
-        return view('auth.editAgent')->with('users',$agents);
+        return view('pages.editAgent')->with(["users" => $users]);
     }
 
     public function update(Request $r)
