@@ -18,6 +18,8 @@
                     
                     <a class="nav-link" href="{{ route('agent.register') }}">Register an agent here!</a>
                     <a class="nav-link" href="{{ route('user.register') }}">Register new member here!</a>
+                    <a class="nav-link" href="{{ route('agent.view') }}">View the list of agents here!</a>
+                    <a class="nav-link" href="{{ route('member.view') }}">View the list of member here!</a>
                 
                 </div>
                 @elseif(auth()->user()->isAgent())
@@ -33,6 +35,7 @@
                     You are Logged In as an agent. 
                     
                     <a class="nav-link" href="{{ route('user.register') }}">Register new member here!</a>
+                    <a class="nav-link" href="{{ route('member.view') }}">View the list of member here!</a>
                 
                 </div>
                 @elseif(auth()->user()->isMember())
