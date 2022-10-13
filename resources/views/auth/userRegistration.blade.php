@@ -26,21 +26,29 @@
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" placeholder="Email" id="email" name="email" required autofocus>
+                        <input type="email" class="form-control"placeholder="Email" id="email" name="email" required autofocus>
                         @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif
                     </div>
 
                     <div class="form-group">
-                        <label for="handphone_number">Contact Number:</label>
-                        <input type="tel" class="form-control" placeholder="Contact Number" id="handphone_number" name="handphone_number" required autofocus>
+                        <label for="contactNumber">Contact Number:</label>
+                        <input type="tel" class="form-control" placeholder="Contact Number" id="handphone_number" name="handphone_number" 
+                        pattern="[0-9]{3}-[0-9]{7}|[0-9]{3}-[0-9]{8}" required autofocus>
+                        <p style="margin:1px;font-size:9px;">*Format: 123-4567890/123-45678901</p>
+                        @if ($errors->has('handphone_number'))
+                                      <span class="text-danger">{{ $errors->first('handphone_number') }}</span>
+                       @endif
                     </div>  
                     
                     <div class="form-group">
                         <label for="status">Status:</label>
                         <input type="text" class="form-control" id="status" name="status" required autofocus>
                         <p style="margin:1px;font-size:9px;">*No Score, Poor, Low, Fair, Good, Very Good, &nbspExcellent</p>
+                        @if ($errors->has('status'))
+                                      <span class="text-danger">{{ $errors->first('status') }}</span>
+                                  @endif
                     </div>
                     </div>
         <!--Column 2-->
@@ -67,11 +75,11 @@
                         <input type="password" class="form-control" placeholder="Password" id="password" name="password"  required autofocus>
                         @if ($errors->has('password'))
                                       <span class="text-danger">{{ $errors->first('password') }}</span>
-                        @endif
+                                  @endif
                     </div>
 
-                    <div class="form-group" style="text-align:center;">
-                        <button type="submit" name="submitbtn" class="btn btn-primary">Submit</button>
+                    <div class="form-group" style="text-align:center;"><br>
+                        <button  type="submit" class="btn btn-primary">Submit</button>
                     </div>
 
                 </form>

@@ -138,6 +138,10 @@ class AuthController extends Controller
         $users->ic = $r->ic;
         $users->bank_account_number = $r->bank_account_number;
         $users->bank_company = $r->bank_company;
+        $users->save();
+
+        Session::flash('success',"User was updated successfully!");
+        return redirect()->route('dashboard');
     }
 
     public function logout()

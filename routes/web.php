@@ -32,10 +32,11 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 //Route for editing and updating users' information
 Route::get('agent-edit/{id}', [AuthController::class, 'editAgent'])->name('agent.edit');
 Route::get('member-edit/{id}', [AuthController::class, 'editMember'])->name('member.edit');
+Route::post('update' ,[AuthController::class,'update'])->name('user.update');
 Route::get('view-agent',[AuthController::class, 'viewAgent'])->name('agent.view');
 Route::get('view-member',[AuthController::class, 'viewMember'])->name('member.view');
 
-Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //Route for providing support if user forget password

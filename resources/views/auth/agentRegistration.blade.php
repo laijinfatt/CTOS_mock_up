@@ -53,12 +53,14 @@
                           </div>
 
                           <div class="form-group row">
-                            <label for="gender">Gender</label><br>
+                          <label for="type" class="col-md-4 col-form-label text-md-right">Gender</label>
+                              <div class="col-md-6" style="margin-top:10px;">
                                 <input type="radio" id="gender" name="gender" value="Male">
                                 <label for="Male" style="font-size:14px;">Male</label>&nbsp
                                 <input type="radio" id="gender" name="gender" value="Female">
                                 <label for="female" style="font-size:14px;">Female</label>
                           </div>
+                            </div>
   
                           <div class="form-group row">
                               <div class="col-md-6 offset-md-4">
