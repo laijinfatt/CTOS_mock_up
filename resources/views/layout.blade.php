@@ -82,23 +82,17 @@
     </head>
 
     <body>
-
-        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
         <div class="container">
-       <!--SideNav-->
-           <span style="font-size:20px;cursor:pointer;margin-right:5px;margin-bottom:2px;" onclick="openNav()">&#9776;</span>
+        <span style="font-size:20px;cursor:pointer;margin-right:5px;margin-bottom:2px;" onclick="openNav()">&#9776;</span>
             <div id="mySideNav" class="sidenav">
             <ul style="padding-left:10px;">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <li><a href="{{ route('agent.register') }}">Register Agent</a></li>
-            <li><a href="{{ route('user.register') }}">Register Member</a></li>
-            <li><a href="{{ route('agent.view') }}">Agents</a></li>
-            <li><a href="{{ route('member.view') }}">Members</a></li>
-        </ul>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>     
+            <li><a href="#">About Us</a></li> 
+            </ul>
             </div>
-
         <!--TopNav-->
-            <a class="navbar-brand" href="#">CTOS Mock-Up</a>
+            <a class="navbar-brand" href="{{ route('dashboard') }}"> CTOS Mock-Up</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -118,7 +112,8 @@
                 </div>
             </div>
         </nav>
-
+        </div>
+        </nav>
         @yield('content')
         <script>
             function openNav() {

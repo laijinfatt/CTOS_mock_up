@@ -31,7 +31,6 @@
                     <td>{{ $viewMember->status}}</td>
                     <td>{{ $viewMember->gender }}</td>
                     <td>{{ $viewMember->type }}</td>
-                    <td><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a> </td>
                 </tr>
                 @endforeach
             </tbody>

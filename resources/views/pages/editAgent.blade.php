@@ -1,4 +1,5 @@
 @extends('layout')
+@include('sidenav')
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ url('css/update.css') }}">
 <main class="register-form">

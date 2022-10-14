@@ -1,4 +1,5 @@
 @extends('layout')
+@include('sidenav')
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ url('css/userRegister.css') }}">
 <main class="register-form">
@@ -9,11 +10,6 @@
             <div class="column" style=" float: left; width: 20%;">
              <h5>Create Members</h5>
                  <form method="POST" action="{{ route('register.post') }}">
-                 <?php
-                    //$rand=rand();
-                    //$_SESSION['rand']=$rand;
-                 ?>
-                 {{--<input type="hidden" value="<?php echo $rand; ?>" name="randcheck" />--}}
                     {{ csrf_field() }}
               
                     <div class="form-group">

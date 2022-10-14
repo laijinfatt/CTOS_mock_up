@@ -33,8 +33,8 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('agent-edit/{id}', [AuthController::class, 'editAgent'])->name('agent.edit');
 Route::get('member-edit/{id}', [AuthController::class, 'editMember'])->name('member.edit');
 Route::post('update' ,[AuthController::class,'update'])->name('user.update');
-Route::get('view-agent',[AuthController::class, 'viewAgent'])->name('agent.view');
-Route::get('view-member',[AuthController::class, 'viewMember'])->name('member.view');
+Route::get('show-agent',[AuthController::class, 'showAgent'])->name('agent.show');
+Route::get('show-member',[AuthController::class, 'showMember'])->name('member.show');
 
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');

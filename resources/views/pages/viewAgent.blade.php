@@ -25,7 +25,6 @@
                     <td>{{ $viewAgent->handphone_number }}</td>
                     <td>{{ $viewAgent->gender }}</td>
                     <td>{{ $viewAgent->type }}</td>
-                    <td><a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs">Edit</a> </td>
                 </tr>
                 @endforeach
             </tbody>

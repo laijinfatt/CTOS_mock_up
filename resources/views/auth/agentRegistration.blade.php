@@ -1,4 +1,5 @@
 @extends('layout')
+@include('sidenav')
 @section('content')
 <main class="login-form">
   <div class="cotainer">
