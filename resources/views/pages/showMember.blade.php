@@ -1,10 +1,16 @@
 @extends('layout')
 @include('sidenav')
 @section('content')
+<style>
+    table{
+        font-size:14px;
+    }
+    </style>
 <div class="row">
-    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
     <div class="col-sm-6">
         <br><br>
+    <h3>Memberss Information</h3>
         <table class="table table-bordered">
             <thread>
                 <tr>
@@ -17,7 +23,9 @@
                     <td>Status</td>
                     <td>Gender</td>
                     <td>Type</td>
-                    <td>Action<td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thread>
             <tbody>
@@ -33,6 +41,8 @@
                     <td>{{ $viewMember->gender }}</td>
                     <td>{{ $viewMember->type }}</td>
                     <td><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a> </td>
+                    <td><a href=" {{ route('') }}" class="btn btn-dark btn-xs">Add to Blacklist</a></td>
+                  <!--  <td><a href="#" class="btn btn-danger btn-xs">Delete</a></td> -->
                 </tr>
                 @endforeach
             </tbody>

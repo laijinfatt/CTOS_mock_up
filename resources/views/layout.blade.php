@@ -78,6 +78,9 @@
                 margin-left: 0;
                 margin-right: 0;
             }
+            .img-circle{
+                border-radius: 50%;
+            }
         </style>
     </head>
 
@@ -107,6 +110,10 @@
                                 <a class="nav-link" href="{{ route('logout') }}">Logout</a>
                             </li>
                         @endguest
+                        <!--Sample profile-->
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{route('profile.view')}}"> Profile </a>
+                        </li>
                     </ul>
         
                 </div>

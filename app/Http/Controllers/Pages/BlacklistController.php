@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Pages;
 
 use DB;
 use App\Models\User;
-use App\Models\Blacklist;
 use Illuminate\Http\Request;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsAgent;
@@ -12,36 +11,33 @@ use App\Http\Controllers\Controller;
 
 class BlacklistController extends Controller
 {
-    public function addToBlacklist()
+    public function addToBlacklist($id)
     {
-        return view('pages.blacklist.add');
+        $users = User::all()->where('id',$id);
+        return view('pages.blacklist.add')->with(["users" => $users]);
     }
     
     //right now cannot ensure that member is registered before adding them to blacklist
+    //assume it's update
     public function add(Request $request)
     {
-        //$users = User::find($request->user_name);
+        $users = User::find($request->id);
         
         $request->validate([
-            'user_name' => 'required',
-            'reason' => 'required',
+            'reason' => 'nullable',
             'remark' => 'nullable'
         ]);
 
-        
-            $data = $request->all();
-            $check = $this->create($data);
+        $users->reason = $request->reason;
+        $users->remark = $request->remark;
 
-            return redirect('dashboard')->withSuccess('You have added a member to blacklist.');
+        return redirect('dashboard')->withSuccess('You have added a member to blacklist.');
         
     }
 
-    public function create(array $data)
+    public function viewBlacklist()
     {
-        return Blacklist::create([
-            'user_name' => $data['user_name'],
-            'reason' => $data['reason'],
-            'remark' => $data['remark'],
-        ]);
+        $users = User::all()->whereNotNull('reason');
+        return view('pages.blacklist.view')->with(['users', $users]);
     }
 }
