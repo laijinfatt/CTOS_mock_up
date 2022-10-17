@@ -7,7 +7,7 @@
             <li><a href="{{ route('user.register') }}">Register Member</a></li> 
             <li><a href="{{ route('agent.show') }}">Agents List</a></li> 
             <li><a href="{{ route('member.show') }}">Members List</a></li>
-            <li><a href="#">BlackList</a></li>
+            <li><a href="{{ route('add.to.blacklist') }}">Add to BlackList</a></li>
             </ul>
             </div>
             @elseif(auth()->user()->isAgent())
@@ -17,7 +17,7 @@
             <li><a href="{{ route('user.register') }}">Register Member</a></li> 
             <li><a href="{{ route('agent.view') }}">Agents List</a></li> 
             <li><a href="{{ route('member.show') }}">Members List</a></li>
-            <li><a href="#">BlackList</a></li>
+            <li><a href="{{ route('add.to.blacklist') }}">Add to BlackList</a></li>
             </ul>
             </div>
             @elseif(auth()->user()->isMember())

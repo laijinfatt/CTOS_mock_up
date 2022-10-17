@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Pages\BlacklistController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
@@ -35,6 +36,10 @@ Route::get('member-edit/{id}', [AuthController::class, 'editMember'])->name('mem
 Route::post('update' ,[AuthController::class,'update'])->name('user.update');
 Route::get('show-agent',[AuthController::class, 'showAgent'])->name('agent.show');
 Route::get('show-member',[AuthController::class, 'showMember'])->name('member.show');
+
+//Route for handling matter of blacklisting
+Route::get('add-to-blacklist',[BlacklistController::class, 'addToBlacklist'])->name('add.to.blacklist');
+Route::post('post-blacklist',[BlacklistController::class, 'add'])->name('blacklist.post');
 
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');

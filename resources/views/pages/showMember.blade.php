@@ -17,6 +17,7 @@
                     <td>Status</td>
                     <td>Gender</td>
                     <td>Type</td>
+                    <td>Action<td>
                 </tr>
             </thread>
             <tbody>
