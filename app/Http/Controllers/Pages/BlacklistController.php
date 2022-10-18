@@ -30,6 +30,7 @@ class BlacklistController extends Controller
 
         $users->reason = $request->reason;
         $users->remark = $request->remark;
+        $users->save();
 
         return redirect('dashboard')->withSuccess('You have added a member to blacklist.');
         
