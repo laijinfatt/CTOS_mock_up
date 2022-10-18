@@ -56,6 +56,8 @@
                               </button>
                           </div>
                       </form>
+
+                      {!! session()->get('error') !!}
                         
                   </div>
               </div>

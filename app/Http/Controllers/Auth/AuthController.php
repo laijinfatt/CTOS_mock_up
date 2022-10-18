@@ -44,7 +44,7 @@ class AuthController extends Controller
             return redirect()->intended('dashboard')->withSuccess('You have successfully logged in!');
         }
 
-        return redirect('login')->withSuccess('Your password or email is incorrect. Please re-enter again.');
+        return redirect('login')->with('error', 'Email or password is incorrect. Please try again.');;
 
     }
 
