@@ -39,6 +39,7 @@ class BlacklistController extends Controller
     public function viewBlacklist()
     {
         $users = User::all()->whereNotNull('reason');
-        return view('pages.blacklist.view')->with(['users', $users]);
+        return view('pages.blacklist.view')->with(["users" => $users]);
+        
     }
 }

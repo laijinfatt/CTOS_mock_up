@@ -14,11 +14,11 @@
                 </tr>
             </thread>
             <tbody>
-                @foreach($users as $view)
+                @foreach($users as $viewBlacklist)
                 <tr>
-                    <td>{{ $view->name }}</td>
-                    <td>{{ $view->reason }}</td>
-                    <td>{{ $view->remark }}</td>
+                    <td>{{ $viewBlacklist->name }}</td>
+                    <td>{{ $viewBlacklist->reason }}</td>
+                    <td>{{ $viewBlacklist->remark }}</td>
                 </tr>
                 @endforeach
             </tbody>
