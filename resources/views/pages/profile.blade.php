@@ -84,9 +84,7 @@ h2 {
 
             </div>
 </div>
-            <div class="text-right" style="position: absolute;right:40;bottom:10;">
-                <button class="btn btn-primary profile-button" type="button">Save Profile</button>
-            </div>
+
 
             
         </div>

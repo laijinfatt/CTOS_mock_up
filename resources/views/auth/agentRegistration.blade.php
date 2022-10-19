@@ -13,6 +13,9 @@
             {{ csrf_field() }}
             <input type="hidden" id="handphone_number" name="handphone_number" value="">
             <input type="hidden" id="status" name="status" value="">
+            <input type="hidden" id="score" class="form-control" name="score" placeholder="300-850" 
+                         value="0" min="300" max="850">
+
             <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" placeholder="Enter Full Name" id="name" name="name"  required autofocus>
@@ -50,7 +53,7 @@
                         <label for="Male" style="font-size:14px;">Male</label>&nbsp
                         <input type="radio" id="gender" name="gender"name="gender" value="Female"
                         style="vertical-align: middle;margin-bottom:2px;margin-left:5px;">
-                        <label for="female" style="font-size:14px;">Female</label>
+                        <label for="femela" style="font-size:14px;">Female</label>
                     </div>
 
             <div>

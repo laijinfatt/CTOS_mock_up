@@ -15,8 +15,4 @@ class Blacklist extends Model
         'reason',
         'remark'
     ];
-
-    public function blacklist(){
-        return $this->hasMany('App/Models/User');
-    }
 }

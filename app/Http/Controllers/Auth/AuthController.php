@@ -58,7 +58,37 @@ class AuthController extends Controller
             'handphone_number' => 'nullable',
             'status' => 'nullable',
             'gender' => 'nullable',
+            'score'  => 'required'
         ]);
+
+        if($request['score'] >= 0 && $request['score'] <= 299)
+        {
+            $request['status'] = "No Score";
+        }
+        else if($request['score'] >= 300 && $request['score'] <= 528)
+        {
+            $request['status'] = "Poor";
+        }
+        else if($request['score'] >= 529 && $request['score'] <= 650)
+        {
+            $request['status'] = "Low";
+        }
+        else if($request['score'] >= 651 && $request['score'] <= 696)
+        {
+            $request['status'] = "Fair";
+        }
+        else if($request['score'] >= 697 && $request['score'] <= 717)
+        {
+            $request['status'] = "Good";
+        }
+        else if($request['score'] >= 718 && $request['score'] <= 743)
+        {
+            $request['status'] = "Very Good";
+        }
+        else if($request['score'] >= 744 && $request['score'] <= 850)
+        {
+            $request['status'] = "Excellent";
+        }
     
         $data = $request->all();
         $check = $this->create($data);
@@ -84,7 +114,8 @@ class AuthController extends Controller
             'handphone_number' => $data['handphone_number'],
             'gender' => $data['gender'],
             'status' => $data['status'],
-            'type' => $data['type']
+            'type' => $data['type'],
+            'score' => $data['score']
         ]);
     }
 
@@ -125,7 +156,8 @@ class AuthController extends Controller
 
         return view('pages.editAgent')->with(["users" => $users]);
     }
-
+    
+    //update this code plz, me
     public function update(Request $r)
     {
         $users = User::find($r->id);
