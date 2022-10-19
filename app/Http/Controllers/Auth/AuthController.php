@@ -161,6 +161,10 @@ class AuthController extends Controller
         return view('pages.profile')->with(["users" => $users]);
     }
 
+    public function about(){
+        return view("pages.aboutUs");
+    }
+
     public function logout()
     {
         Session::flush();

@@ -20,7 +20,7 @@
             {
                 box-shadow: 0 2px 4px rgba(0,0,0,.04);
             }
-            .navbar-brand , .nav-link, .my-form, .login-form
+            .navbar-brand , .nav-link, .my-form, .login-form,.topnav-link
             {
                 font-family: Raleway, sans-serif;
             }
@@ -81,39 +81,62 @@
             .img-circle{
                 border-radius: 50%;
             }
+            .topnav-link{
+                font-size:16px;
+            }
+            .topnav-link:hover{
+                color: grey;
+                text-decoration: none;
+            }
         </style>
+        <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
 
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+  
+    <nav class="navbar navbar-expand-lg navbar-laravel" style=" background-image: linear-gradient(to right, #156184, #37758f,#4c8d99);">
         <div class="container">
-        <span style="font-size:20px;cursor:pointer;margin-right:5px;margin-bottom:2px;" onclick="openNav()">&#9776;</span>
+        @if(Auth::check())
+        <span style="font-size:20px;cursor:pointer;margin-right:5px;margin-bottom:2px;color:white;" onclick="openNav()">&#9776;</span>
             <div id="mySideNav" class="sidenav">
             <ul style="padding-left:10px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>     
-            <li><a href="#">About Us</a></li> 
+            <li><a href="{{route('about.us')}}">About Us</a></li> 
             </ul>
             </div>
+            @endif
         <!--TopNav-->
-            <a class="navbar-brand" href="{{ route('dashboard') }}"> CTOS Mock-Up</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}" style="color:white;"> CTOS Mock-Up</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                @if(Auth::check())
+                <a class="topnav-link ml-3" href="{{ route('blacklist.view') }}"
+                 style="color: white;"> BlackLists </a>
+                 <a class="topnav-link ml-3"href="{{route('about.us')}}" style="color: white;">About Us</a>
+                 @else
+                 
+                 @endif 
+        <!--Login & Logout-->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto" >   
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                       
+                            <li class="nav-item" >
+                                <a class="nav-link" href="{{ route('login') }}" style="color:white;">Login</a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                                <a class="nav-link" href="{{ route('logout') }}"style="color:white;">Logout</a>
                             </li>
                         @endguest
+                        
                         <!--Sample profile-->
+                        @if(Auth::check())
                         <li class="nav-item">
-                                <a class="nav-link" href="{{route('profile.view')}}"> Profile </a>
+                                <a class="nav-link" href="{{route('profile.view')}}" style="color:white;"> Profile </a>
                         </li>
+                        @endif
                     </ul>
         
                 </div>
