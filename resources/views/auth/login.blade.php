@@ -57,7 +57,10 @@
                           </div>
                       </form>
 
+                      <div class="error-messeges" style="background-color:red;color:white;margin-top:15px;
+                        font-size:14px;padding-left:5px; width:max-content;">
                       {!! session()->get('error') !!}
+                      </div>  
                         
                   </div>
               </div>
