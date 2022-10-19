@@ -35,6 +35,9 @@ class User extends Authenticatable
         'handphone_number',
         'status',
         'gender',
+        'reason',
+        'remark',
+        'score',
         'type'
     ];
 

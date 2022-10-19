@@ -18,6 +18,7 @@ class UserTableSeeder extends Seeder
             'name'      => 'Admin',
             'email'     => 'admin@example.com',
             'password'  => bcrypt('password'),
+            'score'     => "0",
             'type'      => User::ADMIN,
         ]);
 
@@ -25,6 +26,7 @@ class UserTableSeeder extends Seeder
             'name'      => 'John Doe',
             'email'     => 'john@example.com',
             'password'  => bcrypt('password'),
+            'score'     => "0",
             'type'      => User::AGENT,
         ]);
     }
