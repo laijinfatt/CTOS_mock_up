@@ -212,7 +212,7 @@ class AuthController extends Controller
         $users->ic = $r->ic;
         $users->bank_account_number = $r->bank_account_number;
         $users->bank_company = $r->bank_company;
-        $usera->score = $r->score;
+        $users->score = $r->score;
         $users->save();
 
         Session::flash('success',"User was updated successfully!");
