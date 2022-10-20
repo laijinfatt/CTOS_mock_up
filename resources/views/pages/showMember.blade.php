@@ -10,7 +10,7 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-6">
         <br><br>
-    <h3>Memberss Information</h3>
+    <h3>Members Information</h3>
         <table class="table table-bordered">
             <thread>
                 <tr>
@@ -22,10 +22,9 @@
                     <td>Handphone Number</td>
                     <td>Status</td>
                     <td>Gender</td>
+                    <td>Score</td>
                     <td>Type</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Action</td>
                 </tr>
             </thread>
             <tbody>
@@ -38,10 +37,11 @@
                     <td>{{ $viewMember->bank_company }}</td>
                     <td>{{ $viewMember->handphone_number }}</td>
                     <td>{{ $viewMember->status}}</td>
+                    <td>{{ $viewMember->score}}</td>
                     <td>{{ $viewMember->gender }}</td>
                     <td>{{ $viewMember->type }}</td>
                     <td><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a> </td>
-                    <td><a href=" {{ route('add.to.blacklist',['id'=>$viewMember->id]) }}" class="btn btn-dark btn-xs">Add to Blacklist</a></td>
+                    <!--<td><a href=" {{ route('add.to.blacklist',['id'=>$viewMember->id]) }}" class="btn btn-dark btn-xs">Add to Blacklist</a></td>-->
                   <!--  <td><a href="#" class="btn btn-danger btn-xs">Delete</a></td> -->
                 </tr>
                 @endforeach

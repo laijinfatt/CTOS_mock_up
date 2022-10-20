@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pages;
 use DB;
 use Session;
 use App\Models\User;
+use App\Models\Blacklist;
 use Illuminate\Http\Request;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsAgent;

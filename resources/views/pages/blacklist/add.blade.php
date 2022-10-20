@@ -16,10 +16,20 @@ label{
       <div class="row justify-content-left ml-5">
           <div class="col-md-6" >
               <div class="card" style="height:450px;width:450px;">
-                  <div class="card-header">Add to Blacklist</div>
+                  <div class="card-header">Add Member to Blacklist</div>
                   <div class="card-body">
-                  <form action="{{ route('blacklist.post', ['id'=>$user->id]) }}" method="POST">
+
+                  <form action="{{ route('blacklist.post') }}" method="POST">
                           @csrf
+                          <div class="form-group row" style="margin-top:15px;">
+                              <label for="name" class="col-md-4 col-form-label text-md-left"style="margin-right: -35px !important;">Name</label>
+                              <div class="col-md-7">
+                                  <input type="text" id="name" class="form-control" name="name" required autofocus>
+                                  @if ($errors->has('name'))
+                                      <span class="text-danger">{{ $errors->first('name') }}</span>
+                                  @endif
+                              </div>
+                          </div>
                           <div class="form-group row" style="margin-top:15px;">
                               <label for="reason" class="col-md-4 col-form-label text-md-left"style="margin-right: -35px !important;">Reason</label>
                               <div class="col-md-7">
@@ -44,6 +54,7 @@ label{
                               </button>
                           </div>
                       </form>
+                  
 
                       <div class="error-messeges" style="background-color:red;color:white;margin-top:15px;
                         font-size:14px;padding-left:5px;padding-right:5px; width:max-content;margin-top:50px;">
