@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 
 class BlacklistController extends Controller
 {
-    public function addToBlacklist($id)
+    public function addToBlacklist()
     {
         return view('pages.blacklist.add');
     }
@@ -20,30 +20,30 @@ class BlacklistController extends Controller
     //similar to update
     public function add(Request $request)
     {
-        $users = User::find($request->id);
-        
-        if($users->reason === null){
-            $request->validate([
-                'reason' => 'nullable',
-                'remark' => 'nullable'
-            ]);
-    
-            $users->reason = $request->reason;
-            $users->remark = $request->remark;
-            $users->save();
-    
-            return redirect('dashboard')->withSuccess('You have added a member to blacklist.');
-        }
-        else{
-            return redirect()->back()->with('error','This member has already listed in blacklist!');
-        }
-        
-        
+        $request->validate([
+            'name' => 'required',
+            'reason' => 'required',
+            'remark' => 'nullable',
+        ]);
+
+        $data = $request->all();
+        $check = $this->create($data);
+
+        return redirect('dashboard')->withSuccess('You have added a person to blacklist.');
     }
 
+    public function create(array $data)
+    {
+        return Blacklist::create([
+            'name' => $data['name'],
+            'reason' => $data['reason'],
+            'remark' => $data['remark'],
+        ]);
+    }
+    
     public function viewBlacklist()
     {
-        $users = User::all()->whereNotNull('reason');
+        $users = Blacklist::all();
         return view('pages.blacklist.view')->with(["users" => $users]);
         
     }

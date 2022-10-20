@@ -1,5 +1,5 @@
 <!--SideNav-->       
-@if(auth()->user()->isAdmin())
+<!--@if(auth()->user()->isAdmin())-->
   <div id="mySideNav" class="sidenav">
             <ul style="padding-left:10px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>    
@@ -12,7 +12,7 @@
             {{-- <li><a href="{{ route('blacklist.view') }}">BlackList</a></li> --}}
             </ul>
             </div>
-            @elseif(auth()->user()->isAgent())
+            <!--@elseif(auth()->user()->isAgent())-->
             <div id="mySideNav" class="sidenav">
             <ul style="padding-left:10px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>    
@@ -23,7 +23,7 @@
             {{-- <li><a href="{{ route('blacklist.view') }}">BlackList</a></li> --}}
             </ul>
             </div>
-            @elseif(auth()->user()->isMember())
+            <!--@elseif(auth()->user()->isMember())-->
             <div id="mySideNav" class="sidenav">
             <ul style="padding-left:10px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>     
@@ -32,4 +32,4 @@
             {{-- <li><a href="{{ route('blacklist.view') }}">BlackList</a></li> --}}
             </ul>
             </div>
-            @endif
+            <!--@endif-->
