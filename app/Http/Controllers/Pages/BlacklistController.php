@@ -14,8 +14,7 @@ class BlacklistController extends Controller
 {
     public function addToBlacklist($id)
     {
-        $users = User::all()->where('id',$id);
-        return view('pages.blacklist.add')->with(["users" => $users]);
+        return view('pages.blacklist.add');
     }
    
     //similar to update

@@ -170,8 +170,38 @@ class AuthController extends Controller
             'status' => 'nullable',
             'ic' => 'nullable',
             'bank_account_number' => 'nullable',
-            'bank_company' => 'nullable'
+            'bank_company' => 'nullable',
+            'score' => 'required',
         ]);
+
+        if($r['score'] >= 0 && $r['score'] <= 299)
+        {
+            $r['status'] = "No Score";
+        }
+        else if($r['score'] >= 300 && $r['score'] <= 528)
+        {
+            $r['status'] = "Poor";
+        }
+        else if($r['score'] >= 529 && $r['score'] <= 650)
+        {
+            $r['status'] = "Low";
+        }
+        else if($r['score'] >= 651 && $r['score'] <= 696)
+        {
+            $r['status'] = "Fair";
+        }
+        else if($r['score'] >= 697 && $r['score'] <= 717)
+        {
+            $r['status'] = "Good";
+        }
+        else if($r['score'] >= 718 && $r['score'] <= 743)
+        {
+            $r['status'] = "Very Good";
+        }
+        else if($r['score'] >= 744 && $r['score'] <= 850)
+        {
+            $r['status'] = "Excellent";
+        }
 
         $users->name = $r->name;
         $users->password = $r->password;
@@ -182,6 +212,7 @@ class AuthController extends Controller
         $users->ic = $r->ic;
         $users->bank_account_number = $r->bank_account_number;
         $users->bank_company = $r->bank_company;
+        $usera->score = $r->score;
         $users->save();
 
         Session::flash('success',"User was updated successfully!");

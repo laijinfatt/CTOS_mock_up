@@ -15,7 +15,7 @@ class CreateBlacklistsTable extends Migration
     {
         Schema::create('blacklists', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
+            $table->string('name');
             $table->string('reason');
             $table->string('remark')->nullable();
             $table->timestamps();
