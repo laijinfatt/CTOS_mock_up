@@ -38,7 +38,7 @@ label{
                           <div class="form-group row">
                               <label for="remark" class="col-md-4 col-form-label text-md-left" style="margin-right: -35px !important;">Remark</label>
                               <div class="col-md-7">
-                                  <input type="text" id="remark" class="form-control" name="remark">
+                                  <textarea type="text" id="remark" class="form-control" name="remark"></textarea >
                               </div>
                           </div>
   

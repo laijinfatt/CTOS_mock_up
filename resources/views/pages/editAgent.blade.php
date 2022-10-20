@@ -61,6 +61,9 @@
                         <input type="hidden" class="form-control" id="status" name="status" required autofocus>
                        <!-- <p style="margin:1px;font-size:9px;">*No Score, Poor, Low, Fair, Good, Very Good, &nbspExcellent</p>-->
                     </div>
+                    <input type="hidden" class="form-control" id="score" name="score" 
+                        value="{{$user->score}}" required autofocus>
+
                     
                     <div class="form-group">
                         <label for="contactNumber">Contact Number:</label>
