@@ -11,7 +11,7 @@ class Blacklist extends Model
 
     protected $fillable =[
         'id',
-        'user_name',
+        'name',
         'reason',
         'remark'
     ];
