@@ -16,14 +16,10 @@ label{
       <div class="row justify-content-left ml-5">
           <div class="col-md-6" >
               <div class="card" style="height:450px;width:450px;">
-                  <div class="card-header">Add Member to Blacklist</div>
+                  <div class="card-header">Add to Blacklist</div>
                   <div class="card-body">
-                  @foreach($users as $user)
                   <form action="{{ route('blacklist.post', ['id'=>$user->id]) }}" method="POST">
                           @csrf
-                          <div>
-                          Why add <b> {{ $user->name }} </b>to Blacklist?
-                        </div>
                           <div class="form-group row" style="margin-top:15px;">
                               <label for="reason" class="col-md-4 col-form-label text-md-left"style="margin-right: -35px !important;">Reason</label>
                               <div class="col-md-7">
@@ -48,7 +44,6 @@ label{
                               </button>
                           </div>
                       </form>
-                      @endforeach
 
                       <div class="error-messeges" style="background-color:red;color:white;margin-top:15px;
                         font-size:14px;padding-left:5px;padding-right:5px; width:max-content;margin-top:50px;">

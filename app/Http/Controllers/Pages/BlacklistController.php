@@ -17,7 +17,6 @@ class BlacklistController extends Controller
         return view('pages.blacklist.add');
     }
    
-    //similar to update
     public function add(Request $request)
     {
         $request->validate([
