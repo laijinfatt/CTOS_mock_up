@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CTOS Mock-Up</title>
+        <title>CTOS</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <style type="text/css">
@@ -37,6 +37,7 @@
             padding-top: 60px;
             transition: 0.5s; 
             }
+
             .sidenav a {
             padding: 8px 8px 8px 32px;
             text-decoration: none;
@@ -46,11 +47,13 @@
             display: block;
             transition: 0.3s;
             }
+
             .sidenav li:hover {
             background-color:grey;
             transition: 0.5s; 
             color:white;
             }
+
             .sidenav .closebtn {
             position: absolute;
             top: 0;
@@ -88,6 +91,46 @@
                 color: grey;
                 text-decoration: none;
             }
+
+            .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 10px 14px;
+            background-color: inherit;
+            font-family: inherit; /* Important for vertical align on mobile phones */
+            margin: 0; /* Important for vertical align on mobile phones */
+            }
+
+
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #266b89;
+            min-width: 160px;
+            border-radius:6px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            }
+
+            .dropdown-content a {
+            float: none;
+            color: white !important;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            }
+
+            .dropdown-content a:hover {
+            background-color: #4b8c99;
+            border-radius:6px;
+            }
+
+            .dropdown:hover .dropdown-content {
+            display: block;
+            }
         </style>
         <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
@@ -101,7 +144,7 @@
             <div id="mySideNav" class="sidenav">
             <ul style="padding-left:10px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>     
-            <li><a href="{{route('about.us')}}">About Us</a></li> 
+           
             </ul>
             </div>
             @endif
@@ -111,9 +154,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 @if(Auth::check())
-                <a class="topnav-link ml-3" href="{{ route('blacklist.view') }}"
-                 style="color: white;"> BlackLists </a>
-                 <a class="topnav-link ml-3"href="{{route('about.us')}}" style="color: white;">About Us</a>
+                <div class="dropdown">
+                <button class="dropbtn">Blacklists 
+                <i class="fa fa-caret-down"></i>
+                </button>
+               <div class="dropdown-content">
+               <a  href="{{ route('blacklist.view') }}"
+                 style="color: white;"> View BlackLists </a>
+                 <a  href="{{ route('add.to.blacklist') }}"
+                 style="color: white;"> Add to BlackLists </a>
+               </div>
+                    </div>       
+            
                  @else
                  
                  @endif 
@@ -132,11 +184,11 @@
                         @endguest
                         
                         <!--Sample profile-->
-                        @if(Auth::check())
+                        <!-- @if(Auth::check())
                         <li class="nav-item">
-                                <a class="nav-link" href="{{route('profile.view')}}" style="color:white;"> Profile </a>
+                                <a class="nav-link" href="#" style="color:white;"> Profile </a>
                         </li>
-                        @endif
+                        @endif -->
                     </ul>
         
                 </div>
@@ -149,6 +201,7 @@
             function openNav() {
             document.getElementById("mySideNav").style.width = "250px";
             }
+
             function closeNav() {
             document.getElementById("mySideNav").style.width = "0";
             }
