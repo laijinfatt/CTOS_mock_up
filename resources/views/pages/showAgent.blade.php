@@ -50,7 +50,7 @@
                     <td>{{ $viewAgent->gender }}</td>
                     <td>{{ $viewAgent->type }}</td>
                     <td><a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs">Edit</a> </td>
-                    <td><a href="#" class="btn btn-danger btn-xs"  
+                    <td><a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  
                     onClick="return confirm('Are you sure to delete?')">Delete</a></td> 
                 </tr>
                 @endforeach

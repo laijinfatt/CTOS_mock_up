@@ -38,6 +38,8 @@ Route::get('show-agent',[AuthController::class, 'showAgent'])->name('agent.show'
 Route::get('show-member',[AuthController::class, 'showMember'])->name('member.show');
 Route::get('view-agent',[AuthController::class, 'showAgent'])->name('agent.view');
 Route::get('view-member',[AuthController::class, 'showMember'])->name('member.view');
+Route::get('delete-agent/{id}',[AuthController::class, 'deleteAgent'])->name('agent.delete');
+Route::get('delete-member/{id}',[AuthController::class, 'deleteMember'])->name('member.delete');
 
 //Route for handling matter of blacklisting
 Route::get('add-to-blacklist',[BlacklistController::class, 'addToBlacklist'])->name('add.to.blacklist');

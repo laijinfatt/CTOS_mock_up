@@ -51,7 +51,7 @@ class AuthController extends Controller
             else if(Auth::user()->isMember()){
                 return redirect()->route('blacklist.view')->withSuccess('You have successfully logged in!');
             }
-            
+
         }
 
         return redirect('login')->with('error', 'Email or password is incorrect. Please try again.');;
@@ -166,8 +166,25 @@ class AuthController extends Controller
 
         return view('pages.editAgent')->with(["users" => $users]);
     }
+
+    public function deleteAgent($id)
+    {
+        $agents = User::find($id);
+        $agents->delete();
+
+        Session::flash('success',"Agent was deleted from record successfully!");
+        return redirect()->back();
+    }
+
+    public function deleteMember($id)
+    {
+        $members = User::find($id);
+        $members->delete();
+
+        Session::flash('success',"Member was deleted from record successfully!");
+        return redirect()->back();
+    }
     
-    //update this code plz, me
     public function update(Request $r)
     {
         $users = User::find($r->id);
