@@ -39,9 +39,19 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('password', 'email');
+        
 
         if(Auth::attempt($credentials)){
-            return redirect()->intended('dashboard')->withSuccess('You have successfully logged in!');
+            if(Auth::user()->isAdmin()){
+                return redirect()->route('agent.register')->withSuccess('You have successfully logged in!');
+            }
+            else if(Auth::user()->isAgent()){
+                return redirect()->route('user.register')->withSuccess('You have successfully logged in!');
+            }
+            else if(Auth::user()->isMember()){
+                return redirect()->route('blacklist.view')->withSuccess('You have successfully logged in!');
+            }
+            
         }
 
         return redirect('login')->with('error', 'Email or password is incorrect. Please try again.');;
