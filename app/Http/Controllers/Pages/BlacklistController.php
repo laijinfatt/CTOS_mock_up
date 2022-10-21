@@ -47,4 +47,38 @@ class BlacklistController extends Controller
         return view('pages.blacklist.view')->with(["users" => $users]);
         
     }
+
+    public function edit($id)
+    {
+        $blacklists = Blacklist::all()->where('id',$id);
+        return view('pages.blacklist.edit')->with(["blacklists" => $blacklists]);
+    }
+
+    public function update(Request $r)
+    {
+        $blacklists = Blacklist::find($r->id);
+
+        $r->validate([
+            'name' => 'required',
+            'reason' => 'required',
+            'remark' => 'nullable',
+        ]);
+
+        $blacklists->name = $r->name;
+        $blacklists->reason = $r->reason;
+        $blacklists->remark = $r->remark;
+        $blacklists->save();
+
+        Session::flash('success',"Blacklisted person was updated successfully!");
+        return redirect()->route('dashboard');
+    }
+
+    public function delete($id)
+    {
+        $blacklists = Blacklist::find($id);
+        $blacklists->delete();
+
+        Session::flash('success',"Blacklisted person was deleted from record successfully!");
+        return redirect()->back();
+    }
 }
