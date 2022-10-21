@@ -1,6 +1,23 @@
 @extends('layout')
 @include('sidenav')
 @section('content')
+<style>
+    table {
+    font-size:14px;
+}
+    .trhead{
+        background-color: #37758f;
+        color:white;
+    }
+
+    tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+    .row{
+        margin-right:0 !important;
+    }
+
+    </style>
 <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
@@ -13,7 +30,7 @@
             @endif
         <table class="table table-bordered">
             <thread>
-                <tr>
+                <tr class="trhead">
                     <td>Member Name</td>
                     <td>Reason</td>
                     <td>Remark</td>
@@ -31,7 +48,8 @@
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
                     <td>
                         <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs">Edit</a>
-                        <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" class="btn btn-danger btn-xs">Delete</a>
+                        <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" class="btn btn-danger btn-xs"
+                        onClick="return confirm('Are you sure to delete?')">Delete</a>
                     </td>
                     @endif
                 </tr>
