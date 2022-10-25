@@ -13,7 +13,7 @@
                           <div class="form-group row">
                               <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                               <div class="col-md-6">
-                                  <input type="text" id="email_address" class="form-control" name="email" required autofocus>
+                              <input type="email" id="email_address" class="form-control" name="email" placeholder="Email" required @if(Cookie::has('email')) value="{{Cookie::get('email')}}" @endif>
                                   @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif
@@ -23,7 +23,7 @@
                           <div class="form-group row">
                               <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                               <div class="col-md-6">
-                                  <input type="password" id="password" class="form-control" name="password" required>
+                              <input type="password" id="password" class="form-control" name="password" placeholder="Password" required @if(Cookie::has('password')) value="{{Cookie::get('password')}}" @endif>
                                   @if ($errors->has('password'))
                                       <span class="text-danger">{{ $errors->first('password') }}</span>
                                   @endif
@@ -34,7 +34,7 @@
                               <div class="col-md-6 offset-md-4">
                                   <div class="checkbox">
                                       <label>
-                                          <input type="checkbox" id="remember" name="remember"> Remember Me
+                                          <input type="checkbox" name="rememberme"> Remember Me
                                       </label>
                                   </div>
                               </div>

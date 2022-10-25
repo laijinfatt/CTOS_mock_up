@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use DB;
 use Session;
+use Cookie;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,6 +39,11 @@ class AuthController extends Controller
             'password' => 'required',
             'email' => 'required',
         ]);
+
+        if($request->has('rememberme')){
+            Cookie::queue('email',$request->email,1440); //1440 means it stays for 24 hours
+            Cookie::queue('password',$request->password,1440);
+        }
 
         $credentials = $request->only('password', 'email');
         
