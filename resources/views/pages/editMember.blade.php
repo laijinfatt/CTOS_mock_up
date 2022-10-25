@@ -42,31 +42,26 @@
                     </div> 
 
                     <div class="form-group"style="margin-top:20px;">
-                        <label for="bankAccount">Bank Account Number:</label>
-                        <input type="text" class="form-control" placeholder="Enter Bank Account number" id="bank_account_number" name="bank_account_number" 
-                        value="{{$user->bank_account_number}}" required autofocus>
+                        <label for="bankAccount">Bank Account Number 1:</label>
+                        <input type="text" class="form-control" placeholder="Enter Bank Account number" id="bank_account_number1" name="bank_account_number1" 
+                        value="{{$user->bank_account_number1}}" required autofocus>
                     </div>
                     </div>
         <!--Column 2-->
-                <div class="column" style=" float: left;width: 20%;margin-left:50px; padding-top:32px;"  required autofocus>
-                <div class="form-group">
-                        <label for="bankCompany">Bank Company:</label>
-                        <input type="text" class="form-control" placeholder="Enter Bank Company" 
-                        id="bank_company" name="bank_company" value="{{$user->bank_company}}"  required autofocus>
+        <div class="column" style=" float: left;width: 20%;margin-left:50px; padding-top:32px;">
+       
+        <div class="form-group">
+                        <label for="bankAccount">Bank Account Number 2:</label>
+                        <input type="text" class="form-control" placeholder="Enter Bank Account number" id="bank_account_number2" name="bank_account_number2" 
+                        value="{{$user->bank_account_number2}}"  >
                     </div>
-
-                <div class="form-group">
-                        <!-- <label for="status">Status:</label> -->
-                        <input type="hidden" class="form-control" id="status" name="status" 
-                        value="{{$user->status}}" required autofocus>
-                        <!-- <p style="margin:1px;font-size:9px;">*No Score, Poor, Low, Fair, Good, Very Good, &nbspExcellent</p> -->
+                 
+                    <div class="form-group"style="margin-top:20px;">
+                        <label for="bankAccount">Bank Account Number 3:</label>
+                        <input type="text" class="form-control" placeholder="Enter Bank Account number" id="bank_account_number3" name="bank_account_number3" 
+                        value="{{$user->bank_account_number3}}" >
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="score">Score:</label> -->
-                        <input type="hidden" class="form-control" id="score" name="score" 
-                        value="{{$user->score}}" required autofocus>
-                        <!-- <p style="margin:1px;font-size:9px;">*300-850</p>
-                    </div> -->
+                 
                     
                     <div class="form-group" style="margin-top:20px;">
                         <label for="contactNumber">Contact Number:</label>
@@ -80,9 +75,8 @@
                         <input type="number" id="type" class="form-control" name="type"  value="1" min="1" max="1">
                         <p style="margin:1px;font-size:9px;">*1 = Member</p>
                     </div>
-</div>
-                    <!--Column 3-->
-                    <div class="column" style=" float: left;width: 20%;margin-left:50px; padding-top:32px;"  required autofocus>
+
+                   
                     <div class="form-group" >
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" placeholder="Password" 

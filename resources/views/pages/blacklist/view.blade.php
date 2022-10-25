@@ -27,7 +27,12 @@
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}  
                 </div>  
-            @endif
+            @endif   
+       <h3>Blacklists</h3><br>
+            @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
+            <button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/add-to-blacklist';">Create</button> <br>                        
+            @endif 
+     
         <table class="table table-bordered">
             <thread>
                 <tr class="trhead">
@@ -40,7 +45,7 @@
                 </tr>
             </thread>
             <tbody>
-                @foreach($users as $viewBlacklist)
+                @foreach($blacklists as $viewBlacklist)
                 <tr>
                     <td>{{ $viewBlacklist->name }}</td>
                     <td>{{ $viewBlacklist->reason }}</td>

@@ -11,6 +11,11 @@
             <div class="column" style=" float: left; width: 20%;">
              <h5>Create Members</h5>
                  <form method="POST" action="{{ route('register.post') }}">
+                 <?php
+                    //$rand=rand();
+                    //$_SESSION['rand']=$rand;
+                 ?>
+                 {{--<input type="hidden" value="<?php echo $rand; ?>" name="randcheck" />--}}
                     {{ csrf_field() }}
               
                     <div class="form-group">
@@ -38,34 +43,20 @@
                                       <span class="text-danger">{{ $errors->first('handphone_number') }}</span>
                        @endif
                     </div>  
-                    
-                    <div class="form-group">
-                        <!-- <label for="status">Status:</label> -->
-                        <!-- <input type="hidden" class="form-control" id="status" name="status" required autofocus> -->
-                        <!-- <p style="margin:1px;font-size:9px;">*No Score, Poor, Low, Fair, Good, Very Good, &nbspExcellent</p>
-                        @if ($errors->has('status'))
-                                      <span class="text-danger">{{ $errors->first('status') }}</span>
-                                  @endif -->
-                    </div>
-                    <div class="form-group">
-                        <label for="score" style="margin-bottom:5px;">Score:</label><br>
-                        <input type="number" id="score" class="form-control" name="score" placeholder="300-850" 
-                         value="300" min="300" max="850">
-                        
-                    </div>
-
+  
                     </div>
         <!--Column 2-->
                 <div class="column" style=" float: left;width: 20%;margin-left:100px; padding-top:32px;"  required autofocus>
-                  
-                    <div class="form-group">
+
+
+                    <div class="form-group" style="margin-bottom:10px!important">
                         <label for="gender">Gender:</label><br>
                         <input type="radio" id="gender" name="gender" name="gender" value="Male"
                         style="vertical-align: middle; margin-bottom:2px;">
                         <label for="Male" style="font-size:14px;">Male</label>&nbsp
                         <input type="radio" id="gender" name="gender"name="gender" value="Female"
                         style="vertical-align: middle;margin-bottom:2px;margin-left:5px;">
-                        <label for="femela" style="font-size:14px;">Female</label>
+                        <label for="female" style="font-size:14px;">Female</label>
                     </div>
 
                     <div class="form-group">
