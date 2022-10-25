@@ -55,6 +55,7 @@ class BlacklistController extends Controller
             'reason' => $data['reason'],
             'remark' => $data['remark'],
             'created_by' => $data['created_by'],
+            'social_media_account' => $data['social_media_account'],
         ]);
     }
     
@@ -86,6 +87,7 @@ class BlacklistController extends Controller
             'bank_account_number3' => 'nullable',
             'reason' => 'required',
             'remark' => 'nullable',
+            'social_media_account' => 'nullable',
         ]);
 
         $blacklists->name = $r->name;
