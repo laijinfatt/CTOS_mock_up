@@ -22,6 +22,13 @@ class BlacklistController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'email' => 'required',
+            'handphone_number' => 'nullable',
+            'gender' => 'nullable',
+            'ic' => 'nullable',
+            'bank_account_number1' => 'nullable',
+            'bank_account_number2' => 'nullable',
+            'bank_account_number3' => 'nullable',
             'reason' => 'required',
             'remark' => 'nullable',
         ]);
@@ -36,6 +43,13 @@ class BlacklistController extends Controller
     {
         return Blacklist::create([
             'name' => $data['name'],
+            'email' => $data['email'],
+            'handphone_number' => $data['handphone_number'],
+            'gender' => $data['gender'],
+            'ic' => $data['ic'],
+            'bank_account_number1' => $data['bank_account_number1'],
+            'bank_account_number2' => $data['bank_account_number2'],
+            'bank_account_number3' => $data['bank_account_number3'],
             'reason' => $data['reason'],
             'remark' => $data['remark'],
         ]);
@@ -60,11 +74,25 @@ class BlacklistController extends Controller
 
         $r->validate([
             'name' => 'required',
+            'email' => 'required',
+            'handphone_number' => 'nullable',
+            'gender' => 'nullable',
+            'ic' => 'nullable',
+            'bank_account_number1' => 'nullable',
+            'bank_account_number2' => 'nullable',
+            'bank_account_number3' => 'nullable',
             'reason' => 'required',
             'remark' => 'nullable',
         ]);
 
         $blacklists->name = $r->name;
+        $blacklists->email = $r->email;
+        $blacklists->handphone_number = $r->handphone_number;
+        $blacklists->gender = $r->gender;
+        $blacklists->ic = $r->ic;
+        $blacklists->bank_account_number1 = $r->bank_account_number1;
+        $blacklists->bank_account_number2 = $r->bank_account_number2;
+        $blacklists->bank_account_number3 = $r->bank_account_number3;
         $blacklists->reason = $r->reason;
         $blacklists->remark = $r->remark;
         $blacklists->save();
@@ -73,12 +101,12 @@ class BlacklistController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function delete($id)
+    /*public function delete($id)
     {
         $blacklists = Blacklist::find($id);
         $blacklists->delete();
 
         Session::flash('success',"Blacklisted person was deleted from record successfully!");
         return redirect()->back();
-    }
+    }*/
 }
