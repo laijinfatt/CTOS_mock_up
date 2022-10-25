@@ -31,6 +31,7 @@ class BlacklistController extends Controller
             'bank_account_number3' => 'nullable',
             'reason' => 'required',
             'remark' => 'nullable',
+            'created_by' => 'required',
         ]);
 
         $data = $request->all();
@@ -52,6 +53,7 @@ class BlacklistController extends Controller
             'bank_account_number3' => $data['bank_account_number3'],
             'reason' => $data['reason'],
             'remark' => $data['remark'],
+            'created_by' => $data['created_by'],
         ]);
     }
     

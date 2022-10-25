@@ -34,7 +34,7 @@
                               <div class="col-md-6 offset-md-4">
                                   <div class="checkbox">
                                       <label>
-                                          <input type="checkbox" name="rememberme"> Remember Me
+                                          <input type="checkbox" name="rememberme" @if (Cookie::has('email')) checked @endif> Remember Me
                                       </label>
                                   </div>
                               </div>
