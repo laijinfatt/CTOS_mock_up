@@ -249,7 +249,7 @@ class AuthController extends Controller
         $users->save();
 
         Session::flash('success',"User was updated successfully!");
-        return redirect()->back();
+        return redirect()->route('agent.show');
     }
 
     /*public function profile(){
