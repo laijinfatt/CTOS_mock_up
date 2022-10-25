@@ -41,7 +41,7 @@
                     
                     <div class="form-group">
                         <!-- <label for="status">Status:</label> -->
-                        <input type="hidden" class="form-control" id="status" name="status" required autofocus>
+                        <!-- <input type="hidden" class="form-control" id="status" name="status" required autofocus> -->
                         <!-- <p style="margin:1px;font-size:9px;">*No Score, Poor, Low, Fair, Good, Very Good, &nbspExcellent</p>
                         @if ($errors->has('status'))
                                       <span class="text-danger">{{ $errors->first('status') }}</span>

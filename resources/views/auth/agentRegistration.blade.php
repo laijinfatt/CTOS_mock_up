@@ -12,9 +12,6 @@
             <form action="{{ route('register.post') }}" method="POST">
             {{ csrf_field() }}
             <input type="hidden" id="handphone_number" name="handphone_number" value="">
-            <input type="hidden" id="status" name="status" value="">
-            <input type="hidden" id="score" class="form-control" name="score" placeholder="300-850" 
-                         value="0" min="300" max="850">
 
             <div class="form-group">
                         <label for="name">Name:</label>
@@ -55,6 +52,16 @@
                         style="vertical-align: middle;margin-bottom:2px;margin-left:5px;">
                         <label for="femela" style="font-size:14px;">Female</label>
                     </div>
+
+            <div class="form-group">
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" class="form-control" placeholder="Contact Number" id="handphone_number" name="handphone_number" 
+                pattern="[0-9]{3}-[0-9]{7}|[0-9]{3}-[0-9]{8}" required autofocus>
+                <p style="margin:1px;font-size:9px;">*Format: 123-4567890/123-45678901</p>
+                @if ($errors->has('handphone_number'))
+                                <span class="text-danger">{{ $errors->first('handphone_number') }}</span>
+                @endif
+            </div>  
 
             <div>
                 <button type="submit" class="btn btn-primary"style="width:100%">
