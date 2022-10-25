@@ -249,7 +249,7 @@ class AuthController extends Controller
         $users->save();
 
         Session::flash('success',"User was updated successfully!");
-        return redirect()->route('dashboard');
+        return redirect()->back();
     }
 
     /*public function profile(){

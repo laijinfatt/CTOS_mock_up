@@ -45,7 +45,11 @@
                     </div> 
                     <div class="form-group"style="margin-top:20px;">
                         <input type="hidden" class="form-control" 
-                        id="bank_account_number" name="bank_account_number"  value="{{$user->bank_account_number}}" required autofocus>
+                        id="bank_account_number1" name="bank_account_number1"  value="{{$user->bank_account_number1}}" required autofocus>
+                        <input type="hidden" class="form-control" 
+                        id="bank_account_number2" name="bank_account_number2"  value="{{$user->bank_account_number2}}" required autofocus>
+                        <input type="hidden" class="form-control" 
+                        id="bank_account_number3" name="bank_account_number3"  value="{{$user->bank_account_number3}}" required autofocus>
 
                     </div>
                     </div>
