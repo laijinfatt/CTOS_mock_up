@@ -32,6 +32,7 @@ class BlacklistController extends Controller
             'reason' => 'required',
             'remark' => 'nullable',
             'created_by' => 'required',
+            'social_media_account' => 'nullable',
         ]);
 
         $data = $request->all();
@@ -59,8 +60,8 @@ class BlacklistController extends Controller
     
     public function viewBlacklist()
     {
-        $users = Blacklist::all();
-        return view('pages.blacklist.view')->with(["users" => $users]);
+        $blacklists = DB::table('blacklists')->leftJoin('users','blacklists');
+        return view('pages.blacklist.view');
         
     }
 

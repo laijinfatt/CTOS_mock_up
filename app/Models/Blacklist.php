@@ -23,6 +23,6 @@ class Blacklist extends Model
         'remark',
         'created_by',
         'deleted_by',
-
+        'social_media_account'
     ];
 }
