@@ -44,10 +44,10 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials)){
             // set remember me token when user check the box
-            $remember = Input::get('remember');
-            if(!empty($remember)){
+            //$remember = Input::get('remember');
+            /*if(!empty($remember)){
                 Auth::login(Auth::user()->id, true);
-            }
+            }*/
             if(Auth::user()->isAdmin()){
                 return redirect()->route('agent.register')->withSuccess('You have successfully logged in!');
             }
