@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DB;
 use Session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use DB;
+use Symfony\Component\Console\Input\Input;
 
 // here is the code for settling login,register,logout function
 class AuthController extends Controller
@@ -42,6 +43,11 @@ class AuthController extends Controller
         
 
         if(Auth::attempt($credentials)){
+            // set remember me token when user check the box
+            $remember = Input::get('remember');
+            if(!empty($remember)){
+                Auth::login(Auth::user()->id, true);
+            }
             if(Auth::user()->isAdmin()){
                 return redirect()->route('agent.register')->withSuccess('You have successfully logged in!');
             }
