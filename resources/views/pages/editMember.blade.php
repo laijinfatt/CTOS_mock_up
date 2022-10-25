@@ -20,12 +20,12 @@
                 value="{{$user->id}}">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top:20px;">
                         <label for="email">Email:</label>
                         <input type="email" class="form-control" value="{{$user->email}}" id="email" name="email" required autofocus>
                     </div>
                     
-                    <div class="form-group">
+                    <div class="form-group"  style="margin-top:20px;">
                         <label for="gender">Gender:</label><br>
                         <input type="radio" id="male" name="gender"
                         style="vertical-align: middle; margin-bottom:2px;" value="Male" required>
@@ -61,14 +61,14 @@
                         value="{{$user->status}}" required autofocus>
                         <!-- <p style="margin:1px;font-size:9px;">*No Score, Poor, Low, Fair, Good, Very Good, &nbspExcellent</p> -->
                     </div>
-                    <div class="form-group">
-                        <label for="score">Score:</label>
-                        <input type="number" class="form-control" id="score" name="score" 
+                    <!-- <div class="form-group">
+                        <label for="score">Score:</label> -->
+                        <input type="hidden" class="form-control" id="score" name="score" 
                         value="{{$user->score}}" required autofocus>
-                        <p style="margin:1px;font-size:9px;">*300-850</p>
-                    </div>
+                        <!-- <p style="margin:1px;font-size:9px;">*300-850</p>
+                    </div> -->
                     
-                    <div class="form-group" style="margin-top:44px;">
+                    <div class="form-group" style="margin-top:20px;">
                         <label for="contactNumber">Contact Number:</label>
                         <input type="tel" class="form-control" placeholder="Contact Number" id="handphone_number" name="handphone_number" 
                         pattern="[0-9]{3}-[0-9]{7}|[0-9]{3}-[0-9]{8}" value="{{$user->handphone_number}}" required autofocus>
