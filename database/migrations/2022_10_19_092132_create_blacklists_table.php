@@ -16,8 +16,17 @@ class CreateBlacklistsTable extends Migration
         Schema::create('blacklists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('email',191)->unique();
+            $table->string('handphone_number')->nullable();
+            $table->string('ic')->max(12)->nullable();
+            $table->string('bank_account_number1')->nullable();
+            $table->string('bank_account_number2')->nullable();
+            $table->string('bank_account_number3')->nullable();
+            $table->string('gender')->nullable();
             $table->string('reason');
             $table->string('remark')->nullable();
+            $table->integer('created_by')->unsigned();
+            $table->integer('deleted_by')->unsigned();
             $table->timestamps();
         });
     }

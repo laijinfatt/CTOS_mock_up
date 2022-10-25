@@ -30,15 +30,12 @@ class User extends Authenticatable
         'email',
         'password',
         'ic',
-        'bank_account_number',
-        'bank_company',
+        'bank_account_number1',
+        'bank_account_number2',
+        'bank_account_number3',
         'handphone_number',
-        'status',
         'gender',
-        'reason',
-        'remark',
-        'score',
-        'type'
+        'type',
     ];
 
     /**
