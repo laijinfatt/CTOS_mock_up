@@ -18,6 +18,7 @@
     }
 
     </style>
+ <link rel="stylesheet" type="text/css" href="{{ url('css/search.css') }}">
 <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-6">
@@ -29,15 +30,21 @@
                 </div>  
             @endif   
        <h3>Blacklists</h3><br>
-            @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
+       @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
             <button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/add-to-blacklist';">Create</button>                        
             @endif 
-        <br><br>
-        <form class="form-inline my-2 my-lg-0" action="{{route('blacklist.search')}}" method="POST">
-            @csrf
-            <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>&nbsp;
+    <!-- Search -->
+       <form action="{{route('blacklist.search')}}" method="POST">
+    @csrf
+       <div class="search">
+           <div class="input">
+            <input name="keyword" type="search" placeholder="Search" style="float:left !important">
+            <button type="submit" style="float:left !important"><i class="fa fa-search"></i></button>                               
+                            </div>
+                    </div>
+            </form>
+         
+           
         <table class="table table-bordered" style="margin-top:10px;">
             <thread>
                 <tr class="trhead">
