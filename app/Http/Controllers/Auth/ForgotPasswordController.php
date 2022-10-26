@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use DB;
-use Carbon\Carbon;
-use Illuminate\Support\Str;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Carbon\Carbon;
 
 class ForgotPasswordController extends Controller
 {
@@ -23,50 +21,61 @@ class ForgotPasswordController extends Controller
             'email' => 'required|email|exists:users',
         ]);
 
-        $token = Str::random(64);
+        $token = \Str::random(64);
 
-        DB::table('password_resets')->insert([
+        \DB::table('password_resets')->insert([
             'email' => $request -> email,
             'token' => $token,
             'created_at' => Carbon::now(),
         ]);
 
-        Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
+        $action_link = route('reset.password.get', ['token' => $token, 'email' => $request->email]);
+        $body = "We are received a request to reset the password for <b> CTOS </b> account associated with " .$request->email. ". You can reset your password by clicking the link below";
+
+
+
+        \Mail::send('email.forgetPassword', ['action_link' => $action_link, 'body' => $body], function($message) use ($request){
             $message->to($request['email']);
             $message->subject('Reset Password');
         });
 
-        return back()->with('message','We have emailed you the password reset link. Please check.');
+        return back()->with('success','We have emailed you the password reset link. Please check.');
     }
 
-    public function showResetPasswordForm($token)
+    public function showResetPasswordForm(Request $request, $token = null)
     {
-        return view('auth.forgetPasswordLink', ['token' => $token]);
+        return view('auth.forgetPasswordLink', ['token' => $token,'email'=>$request->email]);
     }
 
     public function sendResetPasswordForm(Request $request)
     {
+        $email = $request->email;
+        
         $request->validate([
-            'email' => 'required|email|exists::users',
+            'email' => 'required|email|exists:users,email',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required',
         ]);
 
-        $updatePassword = DB::table('password_resets')->where([
-            'email' => $request->email,
+        $check_token = \DB::table('password_resets')->where([
+            'email' => $email,
             'token' => $request->token
         ])
         ->first();
 
-        if(!$updatePassword)
+        if(!$check_token)
         {
             return back()->withInput()->with('error','Invalid token!');
         }
-
-        $user = User::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
-
-        DB::table('password_resets')->where(['email' => $request->email])->delete();
-
-        return redirect('/login')->with('message', 'Your password has been changed');
+        else{
+            User::where('email', $email)->update([
+                'password' => \Hash::make($request->password)
+            ]);
+            \DB::table('password_resets')->where([
+                'email' => $email
+                ])->delete();
+        }
+        return redirect()->route('login')->with('success', 'Your password has been changed');
     }
+
 }

@@ -31,13 +31,14 @@ return [
     | Supported: "smtp", "sendmail", "mailgun", "ses",
     |            "postmark", "log", "array", "failover"
     |
+    | Use your own sandbox setting
     */
 
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
+            'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
+            'port' => env('MAIL_PORT', 2525),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
@@ -90,6 +91,8 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
+
+    //need more info to edit
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
