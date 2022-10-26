@@ -37,7 +37,6 @@
                     <td>Bank Account Number</td>
                     <td>Handphone Number</td>
                     <td>Gender</td>
-                    <td>Type</td>
                     <td>Action</td>
                     
                 </tr>
@@ -54,7 +53,6 @@
                     </td>
                     <td>{{ $viewMember->handphone_number }}</td>
                     <td>{{ $viewMember->gender }}</td>
-                    <td>{{ $viewMember->type }}</td>
                     <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a>
                    <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  onClick="return confirm('Are you sure to delete?')">Delete</a></td> 
                 </tr>

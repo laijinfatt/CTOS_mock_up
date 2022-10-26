@@ -79,6 +79,7 @@ label{
                 </div>
                     </div> 
 </div>
+<!-- Column 2 -->
 <div class="column" style=" float: left;width: 50%;">
                     <div class="form-group row"  style="margin-top:20px;">
                         <label for="gender" class="col-md-4 col-form-label text-md-left" style="margin-right: -35px !important;">Gender</label>
