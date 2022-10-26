@@ -26,7 +26,7 @@ class CreateBlacklistsTable extends Migration
             $table->string('reason');
             $table->string('remark')->nullable();
             $table->integer('created_by')->unsigned();
-            $table->integer('deleted_by')->unsigned()->nullable();
+            $table->string('deleted_by')->nullable();
             $table->string('social_media_account')->nullable();
             $table->timestamps();
         });

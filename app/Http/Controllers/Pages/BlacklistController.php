@@ -119,7 +119,7 @@ class BlacklistController extends Controller
     public function delete($id)
     {
         $blacklists = Blacklist::find($id);
-        $blacklists->deleted_by = Auth::id();
+        $blacklists->deleted_by = Auth::user()->name;
         $blacklists->save();
 
         Session::flash('success',"Blacklisted person was deleted from record successfully!");
