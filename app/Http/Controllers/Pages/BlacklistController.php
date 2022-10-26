@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsAgent;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class BlacklistController extends Controller
 {
@@ -115,12 +116,13 @@ class BlacklistController extends Controller
         return redirect()->route('dashboard');
     }
 
-    /*public function delete($id)
+    public function delete($id)
     {
         $blacklists = Blacklist::find($id);
-        $blacklists->delete();
+        $blacklists->deleted_by = Auth::id();
+        $blacklists->save();
 
         Session::flash('success',"Blacklisted person was deleted from record successfully!");
         return redirect()->back();
-    }*/
+    }
 }
