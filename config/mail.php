@@ -14,6 +14,8 @@ return [
     */
 
     'default' => env('MAIL_MAILER', 'smtp'),
+    'host' => env('MAIL_HOST','smtp.mailtrap.io'),
+    'port' => env('MAIL_PORT','2525'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,14 +33,13 @@ return [
     | Supported: "smtp", "sendmail", "mailgun", "ses",
     |            "postmark", "log", "array", "failover"
     |
-    | Use your own sandbox setting
     */
 
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
-            'port' => env('MAIL_PORT', 2525),
+            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
@@ -92,12 +93,8 @@ return [
     |
     */
 
-    //need more info to edit
-
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
+    'from' => ['address' => 'admin@senyum.com', 'name' => 'CTOS'],
+    'encryption' => env('MAIL_ENCRYPTION','tls'),
 
     /*
     |--------------------------------------------------------------------------
