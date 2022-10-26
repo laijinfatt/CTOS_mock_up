@@ -261,6 +261,22 @@ class AuthController extends Controller
         return view("pages.aboutUs");
     }*/
 
+    public function searchAgent(Request $r)
+    {
+        $keyword = $r->keyword;
+        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','2')->get();
+
+        return view('pages.showAgent')->with('users',$users);
+    }
+
+    public function searchMember(Request $r)
+    {
+        $keyword = $r->keyword;
+        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','1')->get();
+
+        return view('pages.showMember')->with('users',$users);
+    }
+
     public function logout()
     {
         Session::flush();

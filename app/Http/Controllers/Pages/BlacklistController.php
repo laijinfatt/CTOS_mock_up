@@ -73,6 +73,13 @@ class BlacklistController extends Controller
         return view('pages.blacklist.edit')->with(["blacklists" => $blacklists]);
     }
 
+    public function searchBlacklist(Request $r)
+    {
+        $keyword = $r->keyword;
+        $blacklists=DB::table('blacklists')->where('name','like','%'.$keyword.'%')->get();
+        return view('pages.blacklist.view')->with('blacklists',$blacklists);
+    }
+
     public function update(Request $r)
     {
         $blacklists = Blacklist::find($r->id);

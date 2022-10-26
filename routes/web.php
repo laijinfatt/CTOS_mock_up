@@ -40,6 +40,8 @@ Route::get('view-agent',[AuthController::class, 'showAgent'])->name('agent.view'
 Route::get('view-member',[AuthController::class, 'showMember'])->name('member.view');
 Route::get('delete-agent/{id}',[AuthController::class, 'deleteAgent'])->name('agent.delete');
 Route::get('delete-member/{id}',[AuthController::class, 'deleteMember'])->name('member.delete');
+Route::post('search-agent',[AuthController::class, 'searchAgent'])->name('agent.search');
+Route::post('search-member',[AuthController::class, 'searchMember'])->name('member.search');
 
 //Route for handling matter of blacklisting
 Route::get('add-to-blacklist',[BlacklistController::class, 'addToBlacklist'])->name('add.to.blacklist');
@@ -48,6 +50,7 @@ Route::get('view-blacklist',[BlacklistController::class, 'viewBlacklist'])->name
 Route::get('edit-blacklisted-person/{id}',[BlacklistController::class, 'edit'])->name('edit.blacklist');
 Route::post('update-blacklist',[BlacklistController::class, 'update'])->name('blacklist.update');
 Route::get('delete-blacklisted-person/{id}',[BlacklistController::class, 'delete'])->name('blacklist.delete');
+Route::post('search-blacklist',[BlacklistController::class, 'searchBlacklist'])->name('blacklist.search');
 
 
 Route::get('profile', [AuthController::class, 'profile'])->name('profile.view'); 
