@@ -76,7 +76,8 @@ class BlacklistController extends Controller
     public function searchBlacklist(Request $r)
     {
         $keyword = $r->keyword;
-        $blacklists=DB::table('blacklists')->where('name','like','%'.$keyword.'%')->get();
+        $blacklists=DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
+        ->select('blacklists.*','users.name as uName')->where('blacklists.name','like','%'.$keyword.'%')->get();
         return view('pages.blacklist.view')->with('blacklists',$blacklists);
     }
 

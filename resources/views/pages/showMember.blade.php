@@ -28,6 +28,11 @@
     <div class="card">
     <h3>Members Information</h3><br>
    <button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/user-registration';">Create</button><br>
+   <form class="form-inline my-2 my-lg-0" action="{{route('member.search')}}" method="POST">
+        @csrf
+        <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>&nbsp;
         <table class="table table-bordered">
             <thread>
                 <tr class="trhead">

@@ -29,6 +29,12 @@
         <h3>Agents Information</h3><br>
         <button style="width:70px;" class="btn btn-primary"
          onclick= "window.location.href = '/agent-registration';">Create</button><br>
+
+        <form class="form-inline my-2 my-lg-0" action="{{route('agent.search')}}" method="POST">
+            @csrf
+            <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>&nbsp;
         <table class="table table-bordered">
             <thread>
                 <tr class="trhead">
