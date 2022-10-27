@@ -1,6 +1,20 @@
 @extends('layout')
 @include('sidenav')
 @section('content')
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="utf-8">
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <script src="jquery.3.4.1.js"></script>
+        <script src="all.min.js"></script>
+
 <style>
 .card-header{
     font-size:16px;
@@ -18,6 +32,13 @@ label{
   <div class="cotainer"><br>
       <div class="row justify-content-left ml-5">
           <div class="col-md-6" >
+          @if(Session::has('error'))
+            <center><div class="alert" style="background-color:#F83030;">
+                <span class="check"><i class="material-icons" style="font-size:20px;color:white;">error</i></span>
+                <span class="msg"  style="color:white;">{{Session::get('error')}}</span>
+                <span class="crose" data-dismiss="alert">&times;</span>
+            </div></center>
+        @endif
               <div class="card" style="height:550px;width:850px;">
                   <div class="card-header">Add Member to Blacklist</div>
                   <div class="card-body">
