@@ -60,6 +60,7 @@ class BlacklistController extends Controller
         ]);
     }
     
+    //ordered by oldest record first
     public function viewBlacklist()
     {
         $blacklists = DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
@@ -124,5 +125,24 @@ class BlacklistController extends Controller
 
         Session::flash('success',"Blacklisted person was deleted from record successfully!");
         return redirect()->back();
+    }
+
+    public function displayNewerFirst()
+    {
+        $blacklists = DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
+        ->select('blacklists.*','users.name as uName')->orderBy('id','desc')->get();
+        return view('pages.blacklist.view')->with('blacklists',$blacklists);
+    }
+
+    //display name that start with A first
+    public function displayAlphabeticallyAsc()
+    {
+
+    }
+
+    //display name that start with Z(if any) first
+    public function displayAlphabeticallyDesc()
+    {
+
     }
 }

@@ -40,10 +40,11 @@
            <div class="input">
             <input name="keyword" type="search" placeholder="Search" style="float:left !important">
             <button type="submit" style="float:left !important"><i class="fa fa-search"></i></button>                               
-                            </div>
-                    </div>
-            </form>
-         
+                        </div>
+                </div>
+        </form>
+        
+        <a href="{{ route('blacklist.view.id.desc') }}" class="btn btn-success btn-xs">Display</a>
            
         <table class="table table-bordered" style="margin-top:10px;">
             <thread>
