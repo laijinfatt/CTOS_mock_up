@@ -20,6 +20,14 @@
                                       <span class="text-danger">{{ $errors->first('name') }}</span>
                                   @endif
                     </div>
+            
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" placeholder="Enter User Name" id="username" name="username"  required autofocus>
+                        @if ($errors->has('username'))
+                                      <span class="text-danger">{{ $errors->first('username') }}</span>
+                                  @endif
+                    </div>
 
                     <div class="form-group">
                         <label for="email">Email:</label>

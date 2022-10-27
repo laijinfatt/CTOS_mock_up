@@ -74,6 +74,7 @@ class AuthController extends Controller
         
         $request->validate([
             'name' => 'required',
+            'username' => 'required',
             'password' => 'required',
             'email' => 'required',
             'type' => 'required',
@@ -129,6 +130,7 @@ class AuthController extends Controller
         
         return User::create([
             'name' => $data['name'],
+            'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'email' => $data['email'],
             'handphone_number' => $data['handphone_number'],
@@ -198,6 +200,7 @@ class AuthController extends Controller
         $users = User::find($r->id);
         $r->validate([
             'name' => 'required',
+            'username' => 'required',
             'password' => 'required',
             'email' => 'required',
             'handphone_number' => 'nullable',
@@ -238,6 +241,7 @@ class AuthController extends Controller
         }*/
 
         $users->name = $r->name;
+        $users->username = $r->username;
         $users->password = $r->password;
         $users->email = $r->email;
         $users->handphone_number = $r->handphone_number;
