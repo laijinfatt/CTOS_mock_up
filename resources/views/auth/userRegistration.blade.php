@@ -11,11 +11,6 @@
             <div class="column" style=" float: left; width: 20%;">
              <h5>Create Members</h5>
                  <form method="POST" action="{{ route('register.post') }}">
-                 <?php
-                    //$rand=rand();
-                    //$_SESSION['rand']=$rand;
-                 ?>
-                 {{--<input type="hidden" value="<?php echo $rand; ?>" name="randcheck" />--}}
                     {{ csrf_field() }}
               
                     <div class="form-group">
@@ -52,9 +47,10 @@
                        @endif
                     </div>  
   
+                    
                     </div>
         <!--Column 2-->
-                <div class="column" style=" float: left;width: 20%;margin-left:100px; padding-top:32px;"  required autofocus>
+                <div class="column" style=" float: left;width: 20%;margin-left:100px; padding-top:32px;">
 
 
                     <div class="form-group" style="margin-bottom:10px!important">

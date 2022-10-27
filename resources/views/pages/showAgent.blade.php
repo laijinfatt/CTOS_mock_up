@@ -30,11 +30,11 @@
         <h3>Agents Information</h3><br>
         <button style="width:70px;" class="btn btn-primary"
                     onclick= "window.location.href = '/agent-registration';">Create</button>
-        <br><br>
         <form action="{{route('agent.search')}}" method="POST">
                 @csrf
             <div class="search">
                             <div class="input">
+                          
                             <button type="submit"><i class="fa fa-search"></i></button> 
                             <input name="keyword" type="search" placeholder="Search" >
                                 
@@ -71,6 +71,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div >
+        {{ $users -> links("pagination::bootstrap-4")}}
+    </div>
         <br>
         </div>
     </div>

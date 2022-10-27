@@ -44,7 +44,9 @@
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
             </div>
-
+</div>
+    <!-- column 2 -->
+            <div class="column" style=" float: left;width: 20%;margin-left:100px; padding-top:32px;">
             <div class="form-group">
                         <label for="type" style="margin-bottom:5px;">Type:</label><br>
                         <input type="number" id="type" class="form-control" name="type"  value="2" min="2" max="2">
@@ -58,7 +60,7 @@
                         <label for="Male" style="font-size:14px;">Male</label>&nbsp
                         <input type="radio" id="gender" name="gender"name="gender" value="Female"
                         style="vertical-align: middle;margin-bottom:2px;margin-left:5px;">
-                        <label for="femela" style="font-size:14px;">Female</label>
+                        <label for="female" style="font-size:14px;">Female</label>
                     </div>
 
             <div class="form-group">
@@ -76,7 +78,9 @@
                     Submit
                 </button>
             </div>
+</div>
         </form>
+        
 </div>
 </div>
 </div>

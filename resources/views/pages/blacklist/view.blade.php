@@ -22,16 +22,16 @@
 <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-6">
-        <br><br>
-        <div class="card-body">
+        <br>
+        <div class="card-body" style="padding-top:0 !important;padding-left:10px !important;">
             @if (session('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}  
                 </div>  
             @endif   
-       <h3>Blacklists</h3><br>
+       <h3>Blacklists</h3>
        @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
-            <button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/add-to-blacklist';">Create</button>                        
+            <br><button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/add-to-blacklist';">Create</button>                        
             @endif 
     <!-- Search -->
        <form action="{{route('blacklist.search')}}" method="POST">
@@ -40,11 +40,10 @@
            <div class="input">
             <input name="keyword" type="search" placeholder="Search" style="float:left !important">
             <button type="submit" style="float:left !important"><i class="fa fa-search"></i></button>                               
-                        </div>
-                </div>
-        </form>
-        
-        <a href="{{ route('blacklist.view.id.desc') }}" class="btn btn-success btn-xs">Display</a>
+                            </div>
+                    </div>
+            </form>
+         
            
         <table class="table table-bordered" style="margin-top:10px;">
             <thread>
@@ -95,6 +94,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $blacklists -> links("pagination::bootstrap-4")}}
         <br><br>
     </div>
 </div>

@@ -37,15 +37,15 @@ class AuthController extends Controller
 
         $request->validate([
             'password' => 'required',
-            'email' => 'required',
+            'username' => 'required',
         ]);
 
         if($request->has('rememberme')){
-            Cookie::queue('email',$request->email,1440); //1440 means it stays for 24 hours
+            Cookie::queue('username',$request->username,1440); //1440 means it stays for 24 hours
             Cookie::queue('password',$request->password,1440);
         }
 
-        $credentials = $request->only('password', 'email');
+        $credentials = $request->only('password', 'username');
         
 
         if(Auth::attempt($credentials)){
@@ -66,7 +66,7 @@ class AuthController extends Controller
 
         }
 
-        return redirect('login')->with('error', 'Email or password is incorrect. Please try again.');;
+        return redirect('login')->with('error', 'Username or password is incorrect. Please try again.');;
 
     }
 
@@ -114,7 +114,15 @@ class AuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect('dashboard')->withSuccess('You have successfully logged in!');
+        if($request->type == 1){
+            return redirect()->route('member.show')->withSuccess('You have successfully created a new member!');
+        }
+        elseif($request->type == 2){
+            return redirect()->route('agent.show')->withSuccess('You have successfully created a new agent!');
+        }
+        else{
+            return redirect()->route('member.show')->withSuccess('You have successfully created a new member!');
+        } 
     }
 
     public function dashboard(){
@@ -141,25 +149,25 @@ class AuthController extends Controller
 
     public function viewAgent()
     {
-        $users = DB::table('users')->select('users.*')->where('type','2')->get();
+        $users = DB::table('users')->select('users.*')->where('type','2')->paginate(5);
         return view("pages.viewAgent")->with(["users" => $users]);
     }
 
     public function viewMember()
     {
-        $users = User::all()->where('type','1');
+        $users = DB::table('users')->select('users.*')->where('type','1')->paginate(5);
         return view("pages.viewMember")->with(["users" => $users]);
     }
 
     public function showAgent()
     {
-        $users = DB::table('users')->select('users.*')->where('type','2')->get();
+        $users = DB::table('users')->select('users.*')->where('type','2')->paginate(5);
         return view("pages.showAgent")->with(["users" => $users]);
     }
 
     public function showMember()
     {
-        $users = User::all()->where('type','1');
+        $users = DB::table('users')->select('users.*')->where('type','1')->paginate(5);
         return view("pages.showMember")->with(["users" => $users]);
     }
 
