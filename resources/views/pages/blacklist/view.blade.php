@@ -79,9 +79,13 @@
                     <td>{{ $viewBlacklist->gender }}</td>
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
                     <td style='white-space: nowrap'>
+                        @if(auth()->user()->isAdmin() || auth()->user()->id == $viewBlacklist->created_by)
                         <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs">Edit</a>
                         <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" class="btn btn-danger btn-xs"
                         onClick="return confirm('Are you sure to delete?')">Delete</a>
+                        @else
+                        N/A
+                        @endif
                     </td>
                     @endif
                     <td>{{ $viewBlacklist->uName }}</td>
