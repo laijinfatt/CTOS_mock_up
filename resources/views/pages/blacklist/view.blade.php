@@ -43,7 +43,10 @@
                             </div>
                     </div>
             </form>
-         
+            <a href="{{ route('blacklist.view') }}" class="btn btn-success btn-xs">View oldest first</a>
+            <a href="{{ route('blacklist.view.id.desc') }}" class="btn btn-success btn-xs">View newest first</a>
+            <a href="{{ route('blacklist.view.name') }}" class="btn btn-success btn-xs">View in alphabetical order</a>
+            <a href="{{ route('blacklist.view.name.desc') }}" class="btn btn-success btn-xs">View in alphabetical descending order</a>
            
         <table class="table table-bordered" style="margin-top:10px;">
             <thread>

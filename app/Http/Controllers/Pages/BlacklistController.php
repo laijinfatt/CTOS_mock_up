@@ -79,7 +79,7 @@ class BlacklistController extends Controller
     {
         $keyword = $r->keyword;
         $blacklists=DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
-        ->select('blacklists.*','users.name as uName')->where('blacklists.name','like','%'.$keyword.'%')->get();
+        ->select('blacklists.*','users.name as uName')->where('blacklists.name','like','%'.$keyword.'%')->paginate(5);
         return view('pages.blacklist.view')->with('blacklists',$blacklists);
     }
 
@@ -135,7 +135,7 @@ class BlacklistController extends Controller
     }
 
     //display name that start with A first
-    public function displayAlphabeticallyAsc()
+    public function displayAlphabetically()
     {
         $blacklists = DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
         ->select('blacklists.*','users.name as uName')->orderBy('name')->paginate(5);

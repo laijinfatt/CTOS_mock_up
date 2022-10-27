@@ -276,7 +276,7 @@ class AuthController extends Controller
     public function searchAgent(Request $r)
     {
         $keyword = $r->keyword;
-        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','2')->get();
+        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','2')->paginate(5);
 
         return view('pages.showAgent')->with('users',$users);
     }
@@ -284,7 +284,7 @@ class AuthController extends Controller
     public function searchMember(Request $r)
     {
         $keyword = $r->keyword;
-        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','1')->get();
+        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','1')->paginate(5);
 
         return view('pages.showMember')->with('users',$users);
     }
