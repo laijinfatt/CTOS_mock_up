@@ -137,12 +137,16 @@ class BlacklistController extends Controller
     //display name that start with A first
     public function displayAlphabeticallyAsc()
     {
-
+        $blacklists = DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
+        ->select('blacklists.*','users.name as uName')->orderBy('name')->paginate(5);
+        return view('pages.blacklist.view')->with('blacklists',$blacklists);
     }
 
     //display name that start with Z(if any) first
     public function displayAlphabeticallyDesc()
     {
-
+        $blacklists = DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
+        ->select('blacklists.*','users.name as uName')->orderBy('name','desc')->paginate(5);
+        return view('pages.blacklist.view')->with('blacklists',$blacklists);
     }
 }
