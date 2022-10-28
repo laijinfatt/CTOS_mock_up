@@ -20,6 +20,13 @@
  
                     </div>
 
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" placeholder="Enter Username"
+                         id="username" name="username"  value="{{$user->username}}"  required autofocus>
+ 
+                    </div>
+
                     <div class="form-group"  style="margin-top:20px;">
                         <label for="email">Email:</label>
                         <input type="email" class="form-control"placeholder="Email" 

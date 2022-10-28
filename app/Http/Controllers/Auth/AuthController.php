@@ -263,7 +263,13 @@ class AuthController extends Controller
         $users->save();
 
         Session::flash('success',"User was updated successfully!");
-        return redirect()->route('agent.show');
+        if($users->type == 2){
+            return redirect()->route('agent.show');
+        }
+        else if($users->type == 1){
+            return redirect()->route('member.show');
+        }
+        
     }
 
     /*public function profile(){
