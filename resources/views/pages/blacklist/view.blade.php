@@ -16,8 +16,16 @@
     .row{
         margin-right:0 !important;
     }
+    th{
+        font-weight:500; 
+         cursor: pointer;
+    }
 
     </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>    
+<script type="text/javascript" src="/js/sortTable.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="{{ url('css/search.css') }}">
 <div class="row">
     <div class="col-sm-1"></div>
@@ -29,10 +37,11 @@
                     {{ session('success') }}  
                 </div>  
             @endif   
-       <h3>Blacklists</h3>
+       <a href="{{route('blacklist.view')}}" style="color:black; text-decoration:none;"><h3>Blacklists</h3></a>
        @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
             <br><button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/add-to-blacklist';">Create</button>                        
             @endif 
+
     <!-- Search -->
        <form action="{{route('blacklist.search')}}" method="POST">
     @csrf
@@ -43,27 +52,29 @@
                             </div>
                     </div>
             </form>
-            <a href="{{ route('blacklist.view') }}" class="btn btn-success btn-xs">View oldest first</a>
-            <a href="{{ route('blacklist.view.id.desc') }}" class="btn btn-success btn-xs">View newest first</a>
-            <a href="{{ route('blacklist.view.name') }}" class="btn btn-success btn-xs">View in alphabetical order</a>
-            <a href="{{ route('blacklist.view.name.desc') }}" class="btn btn-success btn-xs">View in alphabetical descending order</a>
-           
-        <table class="table table-bordered" style="margin-top:10px;">
+
+
+      <!-- Table -->
+        <table  id="mylists" class="table table-bordered" style="margin-top:10px;">
             <thread>
                 <tr class="trhead">
-                    <td>Member Name</td>
-                    <td>Email</td>
-                    <td>Contact Number</td>
-                    <td>IC Number</td>
-                    <td>Reason</td>
-                    <td>Remark</td>
-                    <td>Bank Account</td>
-                    <td>Gender</td>    
+                    <!-- <th style='white-space: nowrap'>Name
+                         <a href="{{route('blacklist.view.name')}}" style="text-decoration:none; color:white;">&#8593</a> 
+                         <a href="{{route('blacklist.view.name.desc')}}" style="text-decoration:none; color:white;">&#8595</a> 
+                    </th> -->
+                    <th onclick="sortTable(0)">Name</th>
+                    <th onclick="sortTable(1)" >Email</th>
+                    <th onclick="sortTable(2)">Contact Number</th>
+                    <th onclick="sortTable(3)">IC Number</th>
+                    <th onclick="sortTable(4)">Reason</th>
+                    <th onclick="sortTable(5)">Remark</th>
+                    <th onclick="sortTable(6)">Bank Account</th>
+                    <th onclick="sortTable(7)">Gender</th>    
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
-                    <td>Action</td>
+                    <th>Action</th>
                     @endif     
-                    <td>Created by</td>
-                    <td>Deleted by</td>
+                    <th onclick="sortTable(8)">Created by</th>
+                    <th onclick="sortTable(9)">Deleted by</th>
                 </tr>
             </thread>
             <tbody>
@@ -101,4 +112,7 @@
         <br><br>
     </div>
 </div>
+<script>
+   
+</script>
 @endsection

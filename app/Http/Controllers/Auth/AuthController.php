@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use DB;
-use Session;
 use Cookie;
+use Session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\Console\Input\Input;
 
 // here is the code for settling login,register,logout function
 class AuthController extends Controller
@@ -289,12 +288,14 @@ class AuthController extends Controller
         return view('pages.showAgent')->with('users',$users);
     }
 
-    public function searchMember(Request $r)
+    public function searchMember()
     {
-        $keyword = $r->keyword;
-        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','1')->paginate(5);
+        $data= \Input::all();
+                 
+        $query = $data['query']; 
+        $users = DB::table('users')->where('name','like','%'.$query.'%')->where('type','1')->paginate(5);
 
-        return view('pages.showMember')->with('users',$users);
+        return \Response::json(['result'   => $output]);
     }
 
     public function displayNewerAgent()

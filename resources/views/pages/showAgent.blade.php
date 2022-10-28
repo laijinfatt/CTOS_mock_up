@@ -20,7 +20,13 @@
 .row{
     margin-right:0 !important;
 }
+th{
+        font-weight:500; 
+         cursor: pointer;
+    }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>    
+<script type="text/javascript" src="/js/sortTable.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url('css/search.css') }}">
 <div class="row">
     <div class="col-sm-2"></div>
@@ -42,15 +48,15 @@
                     </div>
             </form>
      
-        <table class="table table-bordered">
+        <table id="mylists" class="table table-bordered">
             <thread>
                 <tr class="trhead">
-                    <td>Name</td>
-                    <td>Email</td>
-                    <td>IC</td>
-                    <td>Handphone Number</td>
-                    <td>Gender</td>
-                    <td>Action</td>
+                <th onclick="sortTable(0)">Name</th>
+                <th onclick="sortTable(1)">Email</th>
+                <th onclick="sortTable(2)">IC</th>
+                <th onclick="sortTable(3)">Handphone Number</th>
+                <th onclick="sortTable(4)">Gender</th>
+                <th>Action</th>
                     
                 </tr>
             </thread>
