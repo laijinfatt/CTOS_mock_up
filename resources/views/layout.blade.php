@@ -191,6 +191,16 @@
                </div>
                     </div>
            @elseif  (Auth::check() && Auth::user()->isAgent())
+           <div class="dropdown">
+                <button class="dropbtn">Register 
+                <i class="fa fa-caret-down"></i>
+                </button>
+               <div class="dropdown-content">
+                 <a  href="{{ route('user.register') }}"
+                 style="color: white;"> Create Members </a>
+               </div>
+                    </div>
+             <!-- second dropdown  -->   
                 <div class="dropdown">
                     <button class="dropbtn">Blacklists 
                     <i class="fa fa-caret-down"></i>
@@ -202,14 +212,12 @@
                     style="color: white;"> Add to BlackLists </a>
                 </div>
                         </div>
-      <!-- second dropdown  -->
+      
             <div class="dropdown">
                 <button class="dropbtn">View Lists 
                 <i class="fa fa-caret-down"></i>
                 </button>
                <div class="dropdown-content">
-               <a  href="{{ route('agent.view') }}"
-                 style="color: white;">Agents Information </a>
                  <a  href="{{ route('member.view') }}"
                  style="color: white;">Members Information </a>
                </div>
