@@ -36,17 +36,10 @@ th{
         <h3>Agents Information</h3><br>
         <button style="width:70px;" class="btn btn-primary"
                     onclick= "window.location.href = '/agent-registration';">Create</button>
-        <form action="{{route('agent.search')}}" method="POST">
-                @csrf
-            <div class="search">
-                            <div class="input">
-                          
-                            <button type="submit"><i class="fa fa-search"></i></button> 
-                            <input name="keyword" type="search" placeholder="Search" >
-                                
-                            </div>
-                    </div>
-            </form>
+
+        <div class="col-md-10">
+            <input type="search" id="search" name="search" placeholder="Search for names..">
+         </div>
      
         <table id="mylists" class="table table-bordered">
             <thread>
@@ -60,7 +53,7 @@ th{
                     
                 </tr>
             </thread>
-            <tbody>
+            <tbody class="alldata">
                 @foreach($users as $viewAgent)
                 <tr>
                     <td>{{ $viewAgent->name }}</td>
@@ -76,6 +69,10 @@ th{
                 </tr>
                 @endforeach
             </tbody>
+
+            <tbody id="Content" class="searchdata">
+
+            </tbody>
         </table>
         <div >
         {{ $users -> links("pagination::bootstrap-4")}}
@@ -84,4 +81,36 @@ th{
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+    $('#search').on('keyup',function()
+    {
+        $value = $(this).val();
+
+        if($value)
+        {
+            $('.alldata').hide();
+            $('.searchdata').show();
+        }
+        else
+        {
+            $('.alldata').show();
+            $('.searchdata').hide();
+        }
+
+        $.ajax({
+            
+            type: 'get',
+            url: '{{URL::to('search-agent') }}',
+            data: {'search':$value},
+
+            success:function(data)
+            {
+                console.log(data);
+                $('#Content').html(data);
+            }
+        });
+    });
+             
+</script>
 @endsection

@@ -46,7 +46,7 @@ Route::get('view-agent',[AuthController::class, 'showAgent'])->name('agent.view'
 Route::get('view-member',[AuthController::class, 'showMember'])->name('member.view');
 Route::get('delete-agent/{id}',[AuthController::class, 'deleteAgent'])->name('agent.delete');
 Route::get('delete-member/{id}',[AuthController::class, 'deleteMember'])->name('member.delete');
-Route::post('search-agent',[AuthController::class, 'searchAgent'])->name('agent.search');
+Route::get('search-agent',[AuthController::class, 'searchAgent'])->name('agent.search');
 Route::get('search-member',[AuthController::class, 'searchMember'])->name('member.search');
 
 //Route for handling matter of blacklisting

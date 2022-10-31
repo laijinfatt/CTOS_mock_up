@@ -192,7 +192,7 @@ class AuthController extends Controller
         $agents->delete();
 
         Session::flash('success',"Agent was deleted from record successfully!");
-        return redirect()->back();
+        return redirect()->route('agent.show');
     }
 
     public function deleteMember($id)
@@ -282,10 +282,29 @@ class AuthController extends Controller
 
     public function searchAgent(Request $r)
     {
-        $keyword = $r->keyword;
-        $users = DB::table('users')->where('name','like','%'.$keyword.'%')->where('type','2')->paginate(5);
+        $output = "";
+        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','2')->paginate(5);
 
-        return view('pages.showAgent')->with('users',$users);
+        foreach($users as $user)
+        {
+            $output.=
+            '<tr>
+            <td>'.$user->name.'</td>
+            <td>'.$user->email.'</td>
+            <td>'.$user->ic.'</td>
+            <td>'.$user->handphone_number.'</td>
+            <td>'.$user->gender.'</td>
+            <td style="white-space: nowrap">
+            '.'
+            <a href="/agent-edit/'.$user->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
+            '.'
+            <a href="/agent-delete/'.$user->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+            '.'
+            </td>
+            </tr>';
+        }
+
+        return response($output);
     }
 
     public function searchMember(Request $r)
