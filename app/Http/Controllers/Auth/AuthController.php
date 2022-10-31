@@ -201,7 +201,7 @@ class AuthController extends Controller
         $members->delete();
 
         Session::flash('success',"Member was deleted from record successfully!");
-        return redirect()->back();
+        return redirect()->route('member.show');
     }
     
     public function update(Request $r)
@@ -288,14 +288,33 @@ class AuthController extends Controller
         return view('pages.showAgent')->with('users',$users);
     }
 
-    public function searchMember()
+    public function searchMember(Request $r)
     {
-        $data= \Input::all();
-                 
-        $query = $data['query']; 
-        $users = DB::table('users')->where('name','like','%'.$query.'%')->where('type','1')->paginate(5);
+        $output = "";
+        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->paginate(5);
 
-        return \Response::json(['result'   => $output]);
+        foreach($users as $user)
+        {
+            $output.=
+            '<tr>
+            <td>'.$user->name.'</td>
+            <td>'.$user->email.'</td>
+            <td>'.$user->ic.'</td>
+            <td>'.$user->bank_account_number1.'
+                '.$user->bank_account_number2.'
+                '.$user->bank_account_number3.'</td>
+            <td>'.$user->handphone_number.'</td>
+            <td>'.$user->gender.'</td>
+            <td style="white-space: nowrap">
+            '.'
+            <a href="/member-edit/'.$user->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
+            '.'
+            <a href="/member-delete/'.$user->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+            '.'
+            </td>
+            </tr>';
+        }
+        return response($output);
     }
 
     public function displayNewerAgent()
