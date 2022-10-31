@@ -37,7 +37,7 @@ th{
         <button style="width:70px;" class="btn btn-primary"
                     onclick= "window.location.href = '/agent-registration';">Create</button>
 
-        <div class="col-md-10">
+        <div class="col-md-10" style="max-width:99% !important;">
             <input type="search" id="search" name="search" placeholder="Search for names..">
          </div>
      

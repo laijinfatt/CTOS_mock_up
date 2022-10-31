@@ -43,15 +43,9 @@
             @endif 
 
     <!-- Search -->
-       <form action="{{route('blacklist.search')}}" method="POST">
-    @csrf
-       <div class="search">
-           <div class="input">
-            <input name="keyword" type="search" placeholder="Search" style="float:left !important">
-            <button type="submit" style="float:left !important"><i class="fa fa-search"></i></button>                               
-                            </div>
-                    </div>
-            </form>
+    <div class="col-md-10" style="max-width:99% !important;">
+        <input type="search" id="search" name="search" placeholder="Search for names..">
+    </div>
 
 
       <!-- Table -->
@@ -77,7 +71,7 @@
                     <th onclick="sortTable(9)">Deleted by</th>
                 </tr>
             </thread>
-            <tbody>
+            <tbody class="alldata">
                 @foreach($blacklists as $viewBlacklist)
                 <tr>
                     <td>{{ $viewBlacklist->name }}</td>
@@ -107,12 +101,45 @@
                 </tr>
                 @endforeach
             </tbody>
+
+            <tbody id="Content" class="searchdata">
+
+            </tbody>
         </table>
         {{ $blacklists -> links("pagination::bootstrap-4")}}
         <br><br>
     </div>
 </div>
-<script>
-   
+<script type="text/javascript">
+
+    $('#search').on('keyup',function()
+    {
+        $value = $(this).val();
+
+        if($value)
+        {
+            $('.alldata').hide();
+            $('.searchdata').show();
+        }
+        else
+        {
+            $('.alldata').show();
+            $('.searchdata').hide();
+        }
+
+        $.ajax({
+            
+            type: 'get',
+            url: '{{URL::to('search-blacklist') }}',
+            data: {'search':$value},
+
+            success:function(data)
+            {
+                console.log(data);
+                $('#Content').html(data);
+            }
+        });
+    });
+             
 </script>
 @endsection

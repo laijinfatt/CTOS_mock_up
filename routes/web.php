@@ -59,7 +59,7 @@ Route::get('view-blacklist-alphabetically-desc',[BlacklistController::class, 'di
 Route::get('edit-blacklisted-person/{id}',[BlacklistController::class, 'edit'])->name('edit.blacklist');
 Route::post('update-blacklist',[BlacklistController::class, 'update'])->name('blacklist.update');
 Route::get('delete-blacklisted-person/{id}',[BlacklistController::class, 'delete'])->name('blacklist.delete');
-Route::post('search-blacklist',[BlacklistController::class, 'searchBlacklist'])->name('blacklist.search');
+Route::get('search-blacklist',[BlacklistController::class, 'searchBlacklist'])->name('blacklist.search');
 
 
 Route::get('profile', [AuthController::class, 'profile'])->name('profile.view'); 
