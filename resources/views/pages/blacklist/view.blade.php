@@ -43,8 +43,8 @@
             @endif 
 
     <!-- Search -->
-    <div class="col-md-10" style="max-width:99% !important;">
-        <input type="search" id="search" name="search" placeholder="Search for names..">
+    <div class="col-md-10">
+        <input type="search" id="search" name="search" style="float:left; margin-top:10px;margin-left:-15px;" placeholder="Search for names..">
     </div>
 
 
