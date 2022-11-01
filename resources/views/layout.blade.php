@@ -94,7 +94,7 @@
             }
 
             .dropdown .dropbtn {
-            font-size: 16px;
+            font-size: 16px !important;
             border: none;
             outline: none;
             color: white;
@@ -119,9 +119,10 @@
             float: none;
             color: white !important;
             padding: 12px 16px;
-            text-decoration: none;
+            text-decoration: none !important;
             display: block;
             text-align: left;
+            font-size:14px !important;
             }
 
             .dropdown-content a:hover {
@@ -150,7 +151,7 @@
             </div>
             @endif
         <!--TopNav-->
-        <a class="navbar-brand" href="#" style="color:white;"> CTOS Mock-Up</a>
+        <a class="navbar-brand" href="#" style="color:white;"> CTOS Website</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -243,11 +244,11 @@
                         @endguest
                         
                         <!--Sample profile-->
-                        <!-- @if(Auth::check())
+                        @if(Auth::check())
                         <li class="nav-item">
-                                <a class="nav-link" href="#" style="color:white;"> Profile </a>
+                                <a class="nav-link" href="{{ route('profile.view') }}" style="color:white;"> Profile </a>
                         </li>
-                        @endif -->
+                        @endif
                     </ul>
         
                 </div>
