@@ -73,7 +73,8 @@
             </thread>
             <tbody class="alldata">
                 @foreach($blacklists as $viewBlacklist)
-                <tr>
+                @if($viewBlacklist->deleted_by == $viewBlacklist->uName) 
+                <tr style="background-color:#ff0000; color:white;">
                     <td>{{ $viewBlacklist->name }}</td>
                     <td>{{ $viewBlacklist->email }}</td>
                     <td>{{ $viewBlacklist->handphone_number }}</td>
@@ -89,7 +90,7 @@
                     <td style='white-space: nowrap'>
                         @if(auth()->user()->isAdmin() || auth()->user()->id == $viewBlacklist->created_by)
                         <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs">Edit</a>
-                        <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" class="btn btn-danger btn-xs"
+                        <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" id="rowClick "class="btn btn-danger btn-xs"
                         onClick="return confirm('Are you sure to delete?')">Delete</a>
                         @else
                         N/A
@@ -97,7 +98,35 @@
                     </td>
                     @endif
                     <td>{{ $viewBlacklist->uName }}</td>
-                    <td>{{ $viewBlacklist->deleted_by }}</td>
+                  
+                    <td>{{ $viewBlacklist->deleted_by }}</td> 
+                    @else 
+                    <tr>
+                    <td>{{ $viewBlacklist->name }}</td>
+                    <td>{{ $viewBlacklist->email }}</td>
+                    <td>{{ $viewBlacklist->handphone_number }}</td>
+                    <td>{{ $viewBlacklist->ic }}</td>
+                    <td>{{ $viewBlacklist->reason }}</td>
+                    <td>{{ $viewBlacklist->remark }}</td>
+                    <td>{{ $viewBlacklist->bank_account_number1 }}
+                        {{ $viewBlacklist->bank_account_number2 }}
+                        {{ $viewBlacklist->bank_account_number3 }}
+                    </td>
+                    <td>{{ $viewBlacklist->gender }}</td>
+                    @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
+                    <td style='white-space: nowrap'>
+                        @if(auth()->user()->isAdmin() || auth()->user()->id == $viewBlacklist->created_by)
+                        <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs">Edit</a>
+                        <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" id="rowClick "class="btn btn-danger btn-xs"
+                        onClick="return confirm('Are you sure to delete?')">Delete</a>
+                        @else
+                        N/A
+                        @endif
+                    </td>
+                    @endif
+                    <td>{{ $viewBlacklist->uName }}</td> 
+                    <td>{{ $viewBlacklist->deleted_by }}</td> 
+                    @endif
                 </tr>
                 @endforeach
             </tbody>
