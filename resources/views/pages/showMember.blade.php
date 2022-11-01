@@ -32,6 +32,11 @@
 <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-6">
+    @if(Session::has('success'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('success') }}
+                            </div>  
+                        @endif
         <br>
     <div class="card">
     <h3>Members Information</h3><br>

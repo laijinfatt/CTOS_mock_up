@@ -7,6 +7,11 @@
   <div class="cotainer" style="overflow-x:hidden">
   <div class="row justify-content-right ml-5">
           <div class="col-md-10">
+          @if(Session::has('success'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('success') }}
+                            </div>  
+                        @endif
             <br>
             <div class="column" style=" float: left; width: 20%;">
              <h5>Create Members</h5>

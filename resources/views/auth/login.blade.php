@@ -39,7 +39,11 @@ input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type
                 <span class="msg"  style="color:white;">{{Session::get('error')}}</span>
                 <span class="crose" data-dismiss="alert">&times;</span>
             </div></center>
-        @endif
+          @elseif(Session::has('success'))
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('success') }}
+            </div>
+          @endif
               <div class="card" style="margin-top:15px;">
                   <div class="card-header">Login</div>
                   <div class="card-body">

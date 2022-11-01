@@ -31,6 +31,11 @@ th{
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-6">
+    @if(Session::has('success'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('success') }}
+                            </div>  
+                        @endif
         <br>
         <div class="card">
         <h3>Agents Information</h3><br>
