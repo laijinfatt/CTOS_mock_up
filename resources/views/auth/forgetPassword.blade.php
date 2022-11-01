@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">Reset Password</div>
                     <div class="card-body">
-                        @if(Session::has('message'))
+                        @if(Session::has('success'))
                             <div class="alert alert-success" role="alert">
-                                {{ Session::get('message') }}
+                                {{ Session::get('success') }}
                             </div>  
                         @endif
 

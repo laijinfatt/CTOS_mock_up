@@ -39,7 +39,8 @@ class ForgotPasswordController extends Controller
             $message->subject('Reset Password');
         });
 
-        return back()->with('success','We have emailed you the password reset link. Please check.');
+        \Session::flash('success',"We have emailed you the password reset link. Please check.");
+        return back();
     }
 
     public function showResetPasswordForm(Request $request, $token = null)
