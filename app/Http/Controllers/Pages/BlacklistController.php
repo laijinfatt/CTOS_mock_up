@@ -89,7 +89,7 @@ class BlacklistController extends Controller
                 if($blacklist->deleted_by == $blacklist->uName)
                 {
                     $output.=
-                        '<tr style="background-color:#ff0000; color:white;">
+                        '<tr style="background-color:#D10000; color:white;">
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
                         <td>'.$blacklist->handphone_number.'</td>
@@ -113,7 +113,7 @@ class BlacklistController extends Controller
                 else
                 {
                     $output.=
-                        '<tr style="background-color:#ff0000; color:white;">
+                        '<tr>
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
                         <td>'.$blacklist->handphone_number.'</td>
@@ -141,7 +141,7 @@ class BlacklistController extends Controller
                 if($blacklist->deleted_by == $blacklist->uName)
                 {
                     $output.=
-                            '<tr style="background-color:#ff0000; color:white;">
+                            '<tr style="background-color:#D10000; color:white;">
                             <td>'.$blacklist->name.'</td>
                             <td>'.$blacklist->email.'</td>
                             <td>'.$blacklist->handphone_number.'</td>
@@ -183,7 +183,7 @@ class BlacklistController extends Controller
                 if($blacklist->deleted_by == $blacklist->uName)
                 {
                     $output.=
-                        '<tr style="background-color:#ff0000; color:white;">
+                        '<tr style="background-color:#D10000; color:white;">
                             <td>'.$blacklist->name.'</td>
                             <td>'.$blacklist->email.'</td>
                             <td>'.$blacklist->handphone_number.'</td>
@@ -205,7 +205,7 @@ class BlacklistController extends Controller
                 else
                 {
                     $output.=
-                        '<tr style="background-color:#ff0000; color:white;">
+                        '<tr>
                             <td>'.$blacklist->name.'</td>
                             <td>'.$blacklist->email.'</td>
                             <td>'.$blacklist->handphone_number.'</td>
