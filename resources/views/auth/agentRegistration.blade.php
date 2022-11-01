@@ -7,7 +7,7 @@
   <div class="row justify-content-right ml-5">
           <div class="col-md-10">
           @if(Session::has('success'))
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-success" role="alert">
                                 {{ Session::get('success') }}
                             </div>  
                         @endif

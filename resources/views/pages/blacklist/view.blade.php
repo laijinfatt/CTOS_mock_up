@@ -74,7 +74,7 @@
             <tbody class="alldata">
                 @foreach($blacklists as $viewBlacklist)
                 @if($viewBlacklist->deleted_by == $viewBlacklist->uName) 
-                <tr style="background-color:#ff0000; color:white;">
+                <tr style="background-color:#D10000; color:white;">
                     <td>{{ $viewBlacklist->name }}</td>
                     <td>{{ $viewBlacklist->email }}</td>
                     <td>{{ $viewBlacklist->handphone_number }}</td>

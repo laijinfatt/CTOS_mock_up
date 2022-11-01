@@ -37,7 +37,7 @@
         <br>
         
         @if(Session::has('success'))
-            <center><div class="alert" style="background-color:#46C646; font-size:20px; width:350px;">
+            <center style="width:600px;"><div class="alert" style="background-color:#46C646; font-size:20px;">
                 <span class="check"><i class="fa-solid fa-check" style="font-size:20px;color:white;"></i></span>
               <span class="msg"  style="color:white; font-size:20px;">{{Session::get('success')}}</span> 
                 <span class="crose" data-dismiss="alert">&times;</span>

@@ -224,6 +224,17 @@
                  style="color: white;">Members Information </a>
                </div>
                     </div>
+                    @elseif(Auth::check() && Auth::user()->isMember())
+                         <!--  dropdown  -->   
+                <div class="dropdown">
+                    <button class="dropbtn">Blacklists 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                <div class="dropdown-content">
+                <a  href="{{ route('blacklist.view') }}"
+                    style="color: white;"> View BlackLists </a>
+                </div>
+                        </div>
                     @else
                     <div>
                        
