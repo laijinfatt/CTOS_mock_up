@@ -79,6 +79,7 @@ class AuthController extends Controller
             'type' => 'required',
             'handphone_number' => 'nullable',
             'gender' => 'nullable',
+            'permission' => 'required',
         ]);
 
         /*if($request['score'] >= 0 && $request['score'] <= 299)
@@ -143,6 +144,7 @@ class AuthController extends Controller
             'handphone_number' => $data['handphone_number'],
             'gender' => $data['gender'],
             'type' => $data['type'],
+            'permission' => $data['permission'],
         ]);
     }
     
@@ -218,6 +220,7 @@ class AuthController extends Controller
             'bank_account_number1' => 'nullable',
             'bank_account_number2' => 'nullable',
             'bank_account_number3' => 'nullable',
+            'permission' => 'required',
         ]);
 
         /*if($r['score'] >= 0 && $r['score'] <= 299)
@@ -259,6 +262,7 @@ class AuthController extends Controller
         $users->bank_account_number1 = $r->bank_account_number1;
         $users->bank_account_number2 = $r->bank_account_number2;
         $users->bank_account_number3 = $r->bank_account_number3;
+        $users->permission = $r->permission;
         $users->save();
 
         Session::flash('success',"User was updated successfully!");
