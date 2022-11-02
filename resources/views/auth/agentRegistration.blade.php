@@ -78,6 +78,12 @@
                 @endif
             </div>  
 
+            <div class="form-group">
+                        <label for="permission">Permission:</label>
+                        <input type="number" id="permission" class="form-control" name="permission"  value="1" min="1" max="2" required >
+                         <p style="margin:1px;font-size:9px;">*1= Create Member Permission/*2= No Permission</p>
+                    </div>
+
             <div>
                 <button type="submit" class="btn btn-primary"style="width:100%">
                     Submit

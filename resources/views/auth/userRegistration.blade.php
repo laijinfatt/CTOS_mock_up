@@ -74,6 +74,8 @@
                         <!-- <p style="margin:1px;font-size:9px;">*1 = Member</p> -->
                     </div>
 
+                    <input type="hidden" id="permission" class="form-control" name="permission"  value="2" min="1" max="2" >
+
                     <div class="form-group" >
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" placeholder="Password" id="password" name="password"  required autofocus>

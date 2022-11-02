@@ -54,6 +54,7 @@ th{
                 <th onclick="sortTable(2)">IC</th>
                 <th onclick="sortTable(3)">Handphone Number</th>
                 <th onclick="sortTable(4)">Gender</th>
+                <th>Permission</th>
                 <th>Action</th>
                     
                 </tr>
@@ -66,6 +67,7 @@ th{
                     <td>{{ $viewAgent->ic }}</td>
                     <td>{{ $viewAgent->handphone_number }}</td>
                     <td>{{ $viewAgent->gender }}</td>
+                    <td>{{ $viewAgent->permission }}</td>
                     <td style='white-space: nowrap'>
                     <a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs">Edit</a>
                     <a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  

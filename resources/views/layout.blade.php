@@ -192,7 +192,7 @@
                  style="color: white;">Members Information </a>
                </div>
                     </div>
-           @elseif  (Auth::check() && Auth::user()->isAgent())
+           @elseif (Auth::check() && Auth::user()->isAgent() && auth()->user()->permission == '1')
            <div class="dropdown">
                 <button class="dropbtn">Register 
                 <i class="fa fa-caret-down"></i>
@@ -203,6 +203,29 @@
                </div>
                     </div>
              <!-- second dropdown  -->   
+                <div class="dropdown">
+                    <button class="dropbtn">Blacklists 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                <div class="dropdown-content">
+                <a  href="{{ route('blacklist.view') }}"
+                    style="color: white;"> View BlackLists </a>
+                    <a  href="{{ route('add.to.blacklist') }}"
+                    style="color: white;"> Add to BlackLists </a>
+                </div>
+                        </div>
+      
+            <div class="dropdown">
+                <button class="dropbtn">View Lists 
+                <i class="fa fa-caret-down"></i>
+                </button>
+               <div class="dropdown-content">
+                 <a  href="{{ route('member.view') }}"
+                 style="color: white;">Members Information </a>
+               </div>
+                    </div>
+                    @elseif (Auth::check() && Auth::user()->isAgent() && auth()->user()->permission == '2')
+             <!--  dropdown  -->   
                 <div class="dropdown">
                     <button class="dropbtn">Blacklists 
                     <i class="fa fa-caret-down"></i>
