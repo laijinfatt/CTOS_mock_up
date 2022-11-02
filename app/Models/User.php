@@ -37,6 +37,7 @@ class User extends Authenticatable
         'handphone_number',
         'gender',
         'type',
+        'permission',
     ];
 
     /**

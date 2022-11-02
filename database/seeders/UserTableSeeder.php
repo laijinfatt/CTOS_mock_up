@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
             'email'     => 'admin@example.com',
             'password'  => bcrypt('password'),
             'type'      => User::ADMIN,
+            'permission'=> 1,
         ]);
 
         User::factory()->create([
@@ -31,6 +32,7 @@ class UserTableSeeder extends Seeder
             'handphone_number' => '011-12340912',
             'gender'    => 'Male',
             'type'      => User::AGENT,
+            'permission'=> 1,
         ]);
     }
 }
