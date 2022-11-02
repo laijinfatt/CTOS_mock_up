@@ -352,7 +352,7 @@ class AuthController extends Controller
     public function searchAgent(Request $r)
     {
         $output = "";
-        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','2')->paginate(5);
+        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','2')->get();
 
         foreach($users as $user)
         {
@@ -379,7 +379,7 @@ class AuthController extends Controller
     public function searchMember(Request $r)
     {
         $output = "";
-        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->paginate(5);
+        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->get();
 
         foreach($users as $user)
         {

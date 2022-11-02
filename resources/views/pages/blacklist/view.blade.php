@@ -44,7 +44,7 @@
 
     <!-- Search -->
     <div class="col-md-10">
-        <input type="search" id="search" name="search" style="float:left; margin-top:10px;margin-left:-15px;" placeholder="Search for names..">
+        <input type="search" id="search" autocomplete="on" name="search" style="float:left; margin-top:10px;margin-left:-15px;" placeholder="Search for names..">
     </div>
 
 
@@ -141,8 +141,9 @@
 </div>
 <script type="text/javascript">
 
-    $('#search').on('keyup',function()
+    $('#search').on('keyup',function(e)
     {
+        e.preventDefault();
         $value = $(this).val();
 
         if($value)

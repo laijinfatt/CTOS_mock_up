@@ -79,7 +79,7 @@ class BlacklistController extends Controller
     {
         $output = "";
         $blacklists=DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
-        ->select('blacklists.*','users.name as uName')->where('blacklists.name','like','%'.$r->search.'%')->paginate(5);
+        ->select('blacklists.*','users.name as uName')->where('blacklists.name','like','%'.$r->search.'%')->get();
 
         foreach($blacklists as $blacklist)
         {
@@ -227,7 +227,7 @@ class BlacklistController extends Controller
             }
 
         }
-        
+
         return response($output);
     }
 
