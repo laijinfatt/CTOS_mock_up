@@ -53,9 +53,9 @@
     <!-- column 2 -->
             <div class="column" style=" float: left;width: 20%;margin-left:100px; padding-top:32px;">
             <div class="form-group">
-                        <label for="type" style="margin-bottom:5px;">Type:</label><br>
-                        <input type="number" id="type" class="form-control" name="type"  value="2" min="2" max="2">
-                        <p style="margin:1px;font-size:9px;">*2 = Agent</p>
+                        <!-- <label for="type" style="margin-bottom:5px;">Type:</label><br> -->
+                        <input type="hidden" id="type" class="form-control" name="type"  value="2" min="2" max="2">
+                        <!-- <p style="margin:1px;font-size:9px;">*2 = Agent</p> -->
                     </div>
 
             <div class="form-group">

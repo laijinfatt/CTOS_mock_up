@@ -69,9 +69,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="type" style="margin-bottom:5px;">Type:</label><br>
-                        <input type="number" id="type" class="form-control" name="type"  value="1" min="1" max="1">
-                        <p style="margin:1px;font-size:9px;">*1 = Member</p>
+                        <!-- <label for="type" style="margin-bottom:5px;">Type:</label><br> -->
+                        <input type="hidden" id="type" class="form-control" name="type"  value="1" min="1" max="1">
+                        <!-- <p style="margin:1px;font-size:9px;">*1 = Member</p> -->
                     </div>
 
                     <div class="form-group" >
