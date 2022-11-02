@@ -56,8 +56,11 @@ class AuthController extends Controller
             if(Auth::user()->isAdmin()){
                 return redirect()->route('agent.register')->withSuccess('You have successfully logged in!');
             }
-            else if(Auth::user()->isAgent()){
+            else if(Auth::user()->isAgent() && Auth::user()->permission == 1){
                 return redirect()->route('user.register')->withSuccess('You have successfully logged in!');
+            }
+            else if(Auth::user()->isAgent() && Auth::user()->permission == 2){
+                return redirect()->route('member.show')->withSuccess('You have successfully logged in!');
             }
             else if(Auth::user()->isMember()){
                 return redirect()->route('blacklist.view')->withSuccess('You have successfully logged in!');
