@@ -34,14 +34,14 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('agent-edit/{id}', [AuthController::class, 'editAgent'])->name('agent.edit');
 Route::get('member-edit/{id}', [AuthController::class, 'editMember'])->name('member.edit');
 Route::post('update' ,[AuthController::class,'update'])->name('user.update');
-Route::get('show-agent',[AuthController::class, 'showAgent'])->name('agent.show'); //shows older records first
-Route::get('show-newer-agent-first',[AuthController::class, 'displayNewerAgent'])->name('agent.show.id.desc');
-Route::get('show-agent-alphabetically',[AuthController::class, 'displayAgentAlphabetically'])->name('agent.show.name');
-Route::get('show-agent-alphabetically-desc',[AuthController::class, 'displayAgentAlphabeticallyDesc'])->name('agent.show.name.desc');
-Route::get('show-member',[AuthController::class, 'showMember'])->name('member.show'); //shows older records first
-Route::get('show-newer-member-first',[AuthController::class, 'displayNewerMember'])->name('member.show.id.desc');
-Route::get('show-member-alphabetically',[AuthController::class, 'displayMemberAlphabetically'])->name('member.show.name');
-Route::get('show-member-alphabetically-desc',[AuthController::class, 'displayMemberAlphabeticallyDesc'])->name('member.show.name.desc');
+Route::get('show-agent',[AuthController::class, 'showAgent'])->name('agent.show'); 
+// Route::get('show-newer-agent-first',[AuthController::class, 'displayNewerAgent'])->name('agent.show.id.desc');
+// Route::get('show-agent-alphabetically',[AuthController::class, 'displayAgentAlphabetically'])->name('agent.show.name');
+// Route::get('show-agent-alphabetically-desc',[AuthController::class, 'displayAgentAlphabeticallyDesc'])->name('agent.show.name.desc');
+Route::get('show-member',[AuthController::class, 'showMember'])->name('member.show'); 
+// Route::get('show-newer-member-first',[AuthController::class, 'displayNewerMember'])->name('member.show.id.desc');
+// Route::get('show-member-alphabetically',[AuthController::class, 'displayMemberAlphabetically'])->name('member.show.name');
+// Route::get('show-member-alphabetically-desc',[AuthController::class, 'displayMemberAlphabeticallyDesc'])->name('member.show.name.desc');
 Route::get('view-agent',[AuthController::class, 'showAgent'])->name('agent.view');
 Route::get('view-member',[AuthController::class, 'showMember'])->name('member.view');
 Route::get('delete-agent/{id}',[AuthController::class, 'deleteAgent'])->name('agent.delete');
@@ -53,9 +53,9 @@ Route::get('search-member',[AuthController::class, 'searchMember'])->name('membe
 Route::get('add-to-blacklist',[BlacklistController::class, 'addToBlacklist'])->name('add.to.blacklist');
 Route::post('post-blacklist',[BlacklistController::class, 'add'])->name('blacklist.post');
 Route::get('view-blacklist',[BlacklistController::class, 'viewBlacklist'])->name('blacklist.view');
-Route::get('view-blacklist-newly-added-first',[BlacklistController::class, 'displayNewerFirst'])->name('blacklist.view.id.desc');
-Route::get('view-blacklist-alphabetically-first',[BlacklistController::class, 'displayAlphabetically'])->name('blacklist.view.name');
-Route::get('view-blacklist-alphabetically-desc',[BlacklistController::class, 'displayAlphabeticallyDesc'])->name('blacklist.view.name.desc');
+// Route::get('view-blacklist-newly-added-first',[BlacklistController::class, 'displayNewerFirst'])->name('blacklist.view.id.desc');
+// Route::get('view-blacklist-alphabetically-first',[BlacklistController::class, 'displayAlphabetically'])->name('blacklist.view.name');
+// Route::get('view-blacklist-alphabetically-desc',[BlacklistController::class, 'displayAlphabeticallyDesc'])->name('blacklist.view.name.desc');
 Route::get('edit-blacklisted-person/{id}',[BlacklistController::class, 'edit'])->name('edit.blacklist');
 Route::post('update-blacklist',[BlacklistController::class, 'update'])->name('blacklist.update');
 Route::get('delete-blacklisted-person/{id}',[BlacklistController::class, 'delete'])->name('blacklist.delete');
