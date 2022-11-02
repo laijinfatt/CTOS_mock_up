@@ -45,7 +45,7 @@
     @else
     <button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/user-registration';">Create</button>
     @endif
-    
+
     <div class="col-md-10" style="max-width:99% !important;">
         <input type="search" id="search" name="search" placeholder="Search for names..">
     </div>
@@ -75,8 +75,12 @@
                     </td>
                     <td>{{ $viewMember->handphone_number }}</td>
                     <td>{{ $viewMember->gender }}</td>
+                    @if(auth()->user()->isAgent() && auth()->user()->permission == '1')
                     <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a>
                    <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  onClick="return confirm('Are you sure to delete?')">Delete</a></td> 
+                    @else
+                    <td>N/A</td> 
+                    @endif
                 </tr>
                 @endforeach
             </tbody> 

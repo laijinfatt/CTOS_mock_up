@@ -44,7 +44,7 @@
 
     <!-- Search -->
     <div class="col-md-10">
-        <input type="search" id="search" autocomplete="on" name="search" style="float:left; margin-top:10px;margin-left:-15px;" placeholder="Search for names..">
+        <input type="search" id="search" name="search" style="float:left; margin-top:10px;margin-left:-15px;" placeholder="Search for names..">
     </div>
 
 
@@ -64,11 +64,12 @@
                     <th onclick="sortTable(5)">Remark</th>
                     <th onclick="sortTable(6)">Bank Account</th>
                     <th onclick="sortTable(7)">Gender</th>    
+                    <th onclick="sortTable(8)">Social Media Account</th>
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
                     <th>Action</th>
                     @endif     
-                    <th onclick="sortTable(8)">Created by</th>
-                    <th onclick="sortTable(9)">Deleted by</th>
+                    <th onclick="sortTable(9)">Created by</th>
+                    <th onclick="sortTable(10)">Deleted by</th>
                 </tr>
             </thread>
             <tbody class="alldata">
@@ -86,6 +87,7 @@
                         {{ $viewBlacklist->bank_account_number3 }}
                     </td>
                     <td>{{ $viewBlacklist->gender }}</td>
+                    <td>{{ $viewBlacklist->social_media_account }}</td>
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
                     <td style='white-space: nowrap'>
                         @if(auth()->user()->isAdmin() || auth()->user()->id == $viewBlacklist->created_by)
@@ -113,6 +115,7 @@
                         {{ $viewBlacklist->bank_account_number3 }}
                     </td>
                     <td>{{ $viewBlacklist->gender }}</td>
+                    <td>{{ $viewBlacklist->social_media_account }}</td>
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
                     <td style='white-space: nowrap'>
                         @if(auth()->user()->isAdmin() || auth()->user()->id == $viewBlacklist->created_by)
@@ -141,9 +144,8 @@
 </div>
 <script type="text/javascript">
 
-    $('#search').on('keyup',function(e)
+    $('#search').on('keyup',function()
     {
-        e.preventDefault();
         $value = $(this).val();
 
         if($value)
