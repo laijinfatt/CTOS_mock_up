@@ -75,7 +75,7 @@
                     </td>
                     <td>{{ $viewMember->handphone_number }}</td>
                     <td>{{ $viewMember->gender }}</td>
-                    @if(auth()->user()->isAgent() && auth()->user()->permission == '1')
+                    @if(auth()->user()->isAdmin() || auth()->user()->id == $viewMember->created_by)
                     <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a>
                    <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  onClick="return confirm('Are you sure to delete?')">Delete</a></td> 
                     @else

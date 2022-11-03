@@ -54,7 +54,7 @@ th{
                 <th onclick="sortTable(2)">IC</th>
                 <th onclick="sortTable(3)">Handphone Number</th>
                 <th onclick="sortTable(4)">Gender</th>
-                <th>Permission</th>
+                <th onclick="sortTable(5)">Permission</th>
                 <th>Action</th>
                     
                 </tr>
