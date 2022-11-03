@@ -86,10 +86,10 @@ class BlacklistController extends Controller
 
             if(Auth::user()->isAdmin() || Auth::user()->id == $blacklist->created_by)
             {
-                if($blacklist->deleted_by == $blacklist->uName)
+                if($blacklist->deleted_by == null)
                 {
                     $output.=
-                        '<tr style="background-color:#D10000; color:white;">
+                        '<tr>
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
                         <td>'.$blacklist->handphone_number.'</td>
@@ -113,7 +113,7 @@ class BlacklistController extends Controller
                 else
                 {
                     $output.=
-                        '<tr>
+                        '<tr style="background-color:#D10000; color:white;">
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
                         <td>'.$blacklist->handphone_number.'</td>
@@ -138,26 +138,7 @@ class BlacklistController extends Controller
                     
             else if(Auth::user()->isMember())
             {
-                if($blacklist->deleted_by == $blacklist->uName)
-                {
-                    $output.=
-                            '<tr style="background-color:#D10000; color:white;">
-                            <td>'.$blacklist->name.'</td>
-                            <td>'.$blacklist->email.'</td>
-                            <td>'.$blacklist->handphone_number.'</td>
-                            <td>'.$blacklist->ic.'</td>
-                            <td>'.$blacklist->reason.'</td>
-                            <td>'.$blacklist->remark.'</td>
-                            <td>'.$blacklist->bank_account_number1.'
-                                '.$blacklist->bank_account_number2.'
-                                '.$blacklist->bank_account_number3.'</td>
-                            <td>'.$blacklist->gender.'</td>
-                            <td>'.$blacklist->uName.'</td>
-                            <td>'.$blacklist->deleted_by.'</td>
-                            </tr>';
-                }
-
-                else
+                if($blacklist->deleted_by == null)
                 {
                     $output.=
                             '<tr>
@@ -175,53 +156,72 @@ class BlacklistController extends Controller
                             <td>'.$blacklist->deleted_by.'</td>
                             </tr>';
                 }
+
+                else
+                {
+                    $output.=
+                        '<tr style="background-color:#D10000; color:white;">
+                        <td>'.$blacklist->name.'</td>
+                        <td>'.$blacklist->email.'</td>
+                        <td>'.$blacklist->handphone_number.'</td>
+                        <td>'.$blacklist->ic.'</td>
+                        <td>'.$blacklist->reason.'</td>
+                        <td>'.$blacklist->remark.'</td>
+                        <td>'.$blacklist->bank_account_number1.'
+                            '.$blacklist->bank_account_number2.'
+                            '.$blacklist->bank_account_number3.'</td>
+                        <td>'.$blacklist->gender.'</td>
+                        <td>'.$blacklist->uName.'</td>
+                        <td>'.$blacklist->deleted_by.'</td>
+                        </tr>';
+                }
                         
             }
 
             else
             {
-                if($blacklist->deleted_by == $blacklist->uName)
+                if($blacklist->deleted_by == null)
                 {
                     $output.=
-                        '<tr style="background-color:#D10000; color:white;">
-                            <td>'.$blacklist->name.'</td>
-                            <td>'.$blacklist->email.'</td>
-                            <td>'.$blacklist->handphone_number.'</td>
-                            <td>'.$blacklist->ic.'</td>
-                            <td>'.$blacklist->reason.'</td>
-                            <td>'.$blacklist->remark.'</td>
-                            <td>'.$blacklist->bank_account_number1.'
-                                '.$blacklist->bank_account_number2.'
-                                '.$blacklist->bank_account_number3.'</td>
-                            <td>'.$blacklist->gender.'</td>
-                            <td style="white-space: nowrap">
-                                N/A
-                            </td>
-                            <td>'.$blacklist->uName.'</td>
-                            <td>'.$blacklist->deleted_by.'</td>
-                            </tr>';
+                        '<tr>
+                        <td>'.$blacklist->name.'</td>
+                        <td>'.$blacklist->email.'</td>
+                        <td>'.$blacklist->handphone_number.'</td>
+                        <td>'.$blacklist->ic.'</td>
+                        <td>'.$blacklist->reason.'</td>
+                        <td>'.$blacklist->remark.'</td>
+                        <td>'.$blacklist->bank_account_number1.'
+                            '.$blacklist->bank_account_number2.'
+                            '.$blacklist->bank_account_number3.'</td>
+                        <td>'.$blacklist->gender.'</td>
+                        <td style="white-space: nowrap">
+                            N/A
+                        </td>
+                        <td>'.$blacklist->uName.'</td>
+                        <td>'.$blacklist->deleted_by.'</td>
+                        </tr>';
                 }
 
                 else
                 {
                     $output.=
-                        '<tr>
-                            <td>'.$blacklist->name.'</td>
-                            <td>'.$blacklist->email.'</td>
-                            <td>'.$blacklist->handphone_number.'</td>
-                            <td>'.$blacklist->ic.'</td>
-                            <td>'.$blacklist->reason.'</td>
-                            <td>'.$blacklist->remark.'</td>
-                            <td>'.$blacklist->bank_account_number1.'
-                                '.$blacklist->bank_account_number2.'
-                                '.$blacklist->bank_account_number3.'</td>
-                            <td>'.$blacklist->gender.'</td>
-                            <td style="white-space: nowrap">
-                                N/A
-                            </td>
-                            <td>'.$blacklist->uName.'</td>
-                            <td>'.$blacklist->deleted_by.'</td>
-                            </tr>';
+                        '<tr style="background-color:#D10000; color:white;">
+                        <td>'.$blacklist->name.'</td>
+                        <td>'.$blacklist->email.'</td>
+                        <td>'.$blacklist->handphone_number.'</td>
+                        <td>'.$blacklist->ic.'</td>
+                        <td>'.$blacklist->reason.'</td>
+                        <td>'.$blacklist->remark.'</td>
+                        <td>'.$blacklist->bank_account_number1.'
+                            '.$blacklist->bank_account_number2.'
+                            '.$blacklist->bank_account_number3.'</td>
+                        <td>'.$blacklist->gender.'</td>
+                        <td style="white-space: nowrap">
+                            N/A
+                        </td>
+                        <td>'.$blacklist->uName.'</td>
+                        <td>'.$blacklist->deleted_by.'</td>
+                        </tr>';
                 }
                         
             }
