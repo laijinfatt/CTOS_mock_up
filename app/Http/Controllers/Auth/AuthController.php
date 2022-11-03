@@ -83,6 +83,7 @@ class AuthController extends Controller
             'handphone_number' => 'nullable',
             'gender' => 'nullable',
             'permission' => 'required',
+            'created_by' => 'required',
         ]);
 
         /*if($request['score'] >= 0 && $request['score'] <= 299)
@@ -148,6 +149,7 @@ class AuthController extends Controller
             'gender' => $data['gender'],
             'type' => $data['type'],
             'permission' => $data['permission'],
+            'created_by' => $data['created_by'],
         ]);
     }
     
@@ -359,22 +361,22 @@ class AuthController extends Controller
     public function searchAgent(Request $r)
     {
         $output = "";
-        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','2')->get();
+        $agents = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','2')->get();
 
-        foreach($users as $user)
+        foreach($agents as $agent)
         {
             $output.=
             '<tr>
-            <td>'.$user->name.'</td>
-            <td>'.$user->email.'</td>
-            <td>'.$user->ic.'</td>
-            <td>'.$user->handphone_number.'</td>
-            <td>'.$user->gender.'</td>
+            <td>'.$agent->name.'</td>
+            <td>'.$agent->email.'</td>
+            <td>'.$agent->ic.'</td>
+            <td>'.$agent->handphone_number.'</td>
+            <td>'.$agent->gender.'</td>
             <td style="white-space: nowrap">
             '.'
-            <a href="/agent-edit/'.$user->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
+            <a href="/agent-edit/'.$agent->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
             '.'
-            <a href="/agent-delete/'.$user->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+            <a href="/agent-delete/'.$agent->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
             '.'
             </td>
             </tr>';
@@ -386,25 +388,25 @@ class AuthController extends Controller
     public function searchMember(Request $r)
     {
         $output = "";
-        $users = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->get();
+        $members = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->get();
 
-        foreach($users as $user)
+        foreach($members as $member)
         {
             $output.=
             '<tr>
-            <td>'.$user->name.'</td>
-            <td>'.$user->email.'</td>
-            <td>'.$user->ic.'</td>
-            <td>'.$user->bank_account_number1.'
-                '.$user->bank_account_number2.'
-                '.$user->bank_account_number3.'</td>
-            <td>'.$user->handphone_number.'</td>
-            <td>'.$user->gender.'</td>
+            <td>'.$member->name.'</td>
+            <td>'.$member->email.'</td>
+            <td>'.$member->ic.'</td>
+            <td>'.$member->bank_account_number1.'
+                '.$member->bank_account_number2.'
+                '.$member->bank_account_number3.'</td>
+            <td>'.$member->handphone_number.'</td>
+            <td>'.$member->gender.'</td>
             <td style="white-space: nowrap">
             '.'
-            <a href="/member-edit/'.$user->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
+            <a href="/member-edit/'.$member->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
             '.'
-            <a href="/member-delete/'.$user->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+            <a href="/member-delete/'.$member->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
             '.'
             </td>
             </tr>';
