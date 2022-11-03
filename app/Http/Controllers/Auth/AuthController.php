@@ -169,13 +169,13 @@ class AuthController extends Controller
 
     public function showAgent()
     {
-        $users = DB::table('users')->select('users.*')->where('type','2')->orderBy('id','desc')->paginate(5);
+        $users = DB::table('users')->select('users.*')->where('type','2')->orderBy('id','desc')->paginate(50);
         return view("pages.showAgent")->with(["users" => $users]);
     }
 
     public function showMember()
     {
-        $users = DB::table('users')->select('users.*')->where('type','1')->orderBy('id','desc')->paginate(5);
+        $users = DB::table('users')->select('users.*')->where('type','1')->orderBy('id','desc')->paginate(50);
         return view("pages.showMember")->with(["users" => $users]);
     }
 
@@ -361,7 +361,10 @@ class AuthController extends Controller
     public function searchAgent(Request $r)
     {
         $output = "";
-        $agents = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','2')->get();
+        $agents = DB::table('users')->where('type', '=', '2')
+        ->where(function ($query) use($r)
+        {$query->where('name','like','%'.$r->search.'%')->orWhere('email','like','%'.$r->search.'%')
+            ->orWhere('ic','like','%'.$r->search.'%')->orWhere('handphone_number','like','%'.$r->search.'%');})->get();
 
         foreach($agents as $agent)
         {
@@ -389,7 +392,7 @@ class AuthController extends Controller
     public function searchMember(Request $r)
     {
         $output = "";
-        $members = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->get();
+        $members = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->paginate(50);
 
         foreach($members as $member)
         {
