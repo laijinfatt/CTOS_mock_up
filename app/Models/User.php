@@ -38,6 +38,7 @@ class User extends Authenticatable
         'gender',
         'type',
         'permission',
+        'created_by',
     ];
 
     /**

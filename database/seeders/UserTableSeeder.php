@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
             'password'  => bcrypt('password'),
             'type'      => User::ADMIN,
             'permission'=> 1,
+            'created_by'=> 0,
         ]);
 
         User::factory()->create([
@@ -33,6 +34,7 @@ class UserTableSeeder extends Seeder
             'gender'    => 'Male',
             'type'      => User::AGENT,
             'permission'=> 1,
+            'created_by'=> User::ADMIN,
         ]);
     }
 }

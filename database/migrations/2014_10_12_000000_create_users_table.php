@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->integer('type')->unsigned();
             $table->integer('permission')->unsigned();
+            $table->integer('created_by')->unsigned();
             $table->rememberToken();
             $table->timestamps();
         });
