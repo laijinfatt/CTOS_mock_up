@@ -100,6 +100,7 @@ class BlacklistController extends Controller
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
                         <td>'.$blacklist->gender.'</td>
+                        <td>'.$blacklist->social_media_account.'</td>
                         <td style="white-space: nowrap">
                             <a href="/edit-blacklisted-person/'.$blacklist->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
                             '.'
@@ -124,6 +125,7 @@ class BlacklistController extends Controller
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
                         <td>'.$blacklist->gender.'</td>
+                        <td>'.$blacklist->social_media_account.'</td>
                         <td style="white-space: nowrap">
                             <a href="/edit-blacklisted-person/'.$blacklist->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
                             '.'
@@ -152,6 +154,7 @@ class BlacklistController extends Controller
                                 '.$blacklist->bank_account_number2.'
                                 '.$blacklist->bank_account_number3.'</td>
                             <td>'.$blacklist->gender.'</td>
+                            <td>'.$blacklist->social_media_account.'</td>
                             <td>'.$blacklist->uName.'</td>
                             <td>'.$blacklist->deleted_by.'</td>
                             </tr>';
@@ -171,6 +174,7 @@ class BlacklistController extends Controller
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
                         <td>'.$blacklist->gender.'</td>
+                        <td>'.$blacklist->social_media_account.'</td>
                         <td>'.$blacklist->uName.'</td>
                         <td>'.$blacklist->deleted_by.'</td>
                         </tr>';
@@ -194,6 +198,7 @@ class BlacklistController extends Controller
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
                         <td>'.$blacklist->gender.'</td>
+                        <td>'.$blacklist->social_media_account.'</td>
                         <td style="white-space: nowrap">
                             N/A
                         </td>
@@ -216,6 +221,7 @@ class BlacklistController extends Controller
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
                         <td>'.$blacklist->gender.'</td>
+                        <td>'.$blacklist->social_media_account.'</td>
                         <td style="white-space: nowrap">
                             N/A
                         </td>

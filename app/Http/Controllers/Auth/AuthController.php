@@ -372,6 +372,7 @@ class AuthController extends Controller
             <td>'.$agent->ic.'</td>
             <td>'.$agent->handphone_number.'</td>
             <td>'.$agent->gender.'</td>
+            <td>'.$agent->permission.'</td>
             <td style="white-space: nowrap">
             '.'
             <a href="/agent-edit/'.$agent->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
