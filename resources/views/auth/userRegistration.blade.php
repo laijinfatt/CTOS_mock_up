@@ -67,7 +67,7 @@
                         style="vertical-align: middle;margin-bottom:2px;margin-left:5px;">
                         <label for="female" style="font-size:14px;">Female</label>
                     </div>
-
+<!-- hidden -->
                     <div class="form-group">
                         <!-- <label for="type" style="margin-bottom:5px;">Type:</label><br> -->
                         <input type="hidden" id="type" class="form-control" name="type"  value="1" min="1" max="1">
@@ -75,6 +75,8 @@
                     </div>
 
                     <input type="hidden" id="permission" class="form-control" name="permission"  value="2" min="1" max="2" >
+                   
+                        <input type="hidden" id="created_by" class="form-control" name="created_by"  value="{{auth()->user()->id}}" required >
 
                     <div class="form-group" >
                         <label for="password">Password:</label>

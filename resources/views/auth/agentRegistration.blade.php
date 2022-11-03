@@ -16,7 +16,10 @@
             <h5>Create Agent</h5>
             <form action="{{ route('register.post') }}" method="POST">
             {{ csrf_field() }}
+
+            <!-- hidden -->
             <input type="hidden" id="handphone_number" name="handphone_number" value="">
+            <input type="hidden" id="created_by" class="form-control" name="created_by"  value="{{auth()->user()->id}}" required >
 
             <div class="form-group">
                         <label for="name">Name:</label>
@@ -52,6 +55,7 @@
 </div>
     <!-- column 2 -->
             <div class="column" style=" float: left;width: 20%;margin-left:100px; padding-top:32px;">
+            <!-- hidden -->
             <div class="form-group">
                         <!-- <label for="type" style="margin-bottom:5px;">Type:</label><br> -->
                         <input type="hidden" id="type" class="form-control" name="type"  value="2" min="2" max="2">
@@ -83,6 +87,9 @@
                         <input type="number" id="permission" class="form-control" name="permission"  value="1" min="1" max="2" required >
                          <p style="margin:1px;font-size:9px;">*1= Create Member Permission/*2= No Permission</p>
                     </div>
+
+                  
+                    
 
             <div>
                 <button type="submit" class="btn btn-primary"style="width:100%">
