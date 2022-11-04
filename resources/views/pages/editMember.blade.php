@@ -18,6 +18,8 @@
                         <input type="text" class="form-control"  value="{{$user->name}}" id="name" name="name"  required autofocus>
                         <input type="hidden" name="id" id="id"
                 value="{{$user->id}}">
+                <input type="hidden" name="permission" id="permission"
+                value="{{$user->permission}}">
                     </div>
 
                     <div class="form-group">

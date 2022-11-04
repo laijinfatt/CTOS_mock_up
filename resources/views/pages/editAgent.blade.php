@@ -63,9 +63,9 @@
         <!--Column 2-->
                 <div class="column" style=" float: left;width: 20%;margin-left:50px; padding-top:21px;"  required autofocus>
                 <div class="form-group">
-                        <input type="hidden" class="form-control" 
-                        id="bank_company" name="bank_company"   value="{{$user->bank_company}}" required autofocus>
-
+                        <label for="permission">Permission:</label>
+                        <input type="number" id="permission" class="form-control" name="permission"  value="1" min="1" max="2" required >
+                         <p style="margin:1px;font-size:9px;">*1= Create Member Permission/*2= No Permission</p>
                     </div>
 
                 <div class="form-group">
