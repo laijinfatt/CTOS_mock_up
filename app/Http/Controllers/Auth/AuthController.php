@@ -364,7 +364,7 @@ class AuthController extends Controller
         $agents = DB::table('users')->where('type', '=', '2')
         ->where(function ($query) use($r)
         {$query->where('name','like','%'.$r->search.'%')->orWhere('email','like','%'.$r->search.'%')
-            ->orWhere('ic','like','%'.$r->search.'%')->orWhere('handphone_number','like','%'.$r->search.'%');})->get();
+            ->orWhere('ic','like','%'.$r->search.'%')->orWhere('handphone_number','like','%'.$r->search.'%');})->paginate(50);
 
         foreach($agents as $agent)
         {
@@ -392,7 +392,12 @@ class AuthController extends Controller
     public function searchMember(Request $r)
     {
         $output = "";
-        $members = DB::table('users')->where('name','like','%'.$r->search.'%')->where('type','1')->paginate(50);
+        $members = DB::table('users')->where('type', '=', '1')
+        ->where(function ($query) use($r)
+        {$query->where('name','like','%'.$r->search.'%')->orWhere('email','like','%'.$r->search.'%')
+            ->orWhere('ic','like','%'.$r->search.'%')->orWhere('handphone_number','like','%'.$r->search.'%')
+            ->orWhere('bank_account_number1','like','%'.$r->search.'%')->orWhere('bank_account_number2','like','%'.$r->search.'%')
+            ->orWhere('bank_account_number3','like','%'.$r->search.'%')->orWhere('created_by','like','%'.$r->search.'%');})->paginate(50);
 
         foreach($members as $member)
         {
@@ -406,6 +411,7 @@ class AuthController extends Controller
                 '.$member->bank_account_number3.'</td>
             <td>'.$member->handphone_number.'</td>
             <td>'.$member->gender.'</td>
+            <td>'.$member->created_by.'</td>
             <td style="white-space: nowrap">
             '.'
             <a href="/member-edit/'.$member->id.'" class="btn btn-warning btn-xs">'.'Edit</a>

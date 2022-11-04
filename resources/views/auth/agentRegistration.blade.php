@@ -19,7 +19,7 @@
 
             <!-- hidden -->
             <input type="hidden" id="handphone_number" name="handphone_number" value="">
-            <input type="hidden" id="created_by" class="form-control" name="created_by"  value="{{auth()->user()->id}}" required >
+            <input type="hidden" id="created_by" class="form-control" name="created_by"  value="{{auth()->user()->name}}" required >
 
             <div class="form-group">
                         <label for="name">Name:</label>

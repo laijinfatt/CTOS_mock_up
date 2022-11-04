@@ -76,7 +76,7 @@
 
                     <input type="hidden" id="permission" class="form-control" name="permission"  value="2" min="1" max="2" >
                    
-                        <input type="hidden" id="created_by" class="form-control" name="created_by"  value="{{auth()->user()->id}}" required >
+                        <input type="hidden" id="created_by" class="form-control" name="created_by"  value="{{auth()->user()->name}}" required >
 
                     <div class="form-group" >
                         <label for="password">Password:</label>

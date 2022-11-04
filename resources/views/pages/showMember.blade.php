@@ -59,6 +59,7 @@
                 <th onclick="sortTable(3)">Bank Account Number</th>
                 <th onclick="sortTable(4)">Handphone Number</th>
                 <th onclick="sortTable(5)">Gender</th>
+                <th onclick="sortTable(6)">Created By</th>
                 <th>Action</th>
                     
                 </tr>
@@ -75,6 +76,7 @@
                     </td>
                     <td>{{ $viewMember->handphone_number }}</td>
                     <td>{{ $viewMember->gender }}</td>
+                    <td>{{ $viewMember->created_by }}</td>
                     @if(auth()->user()->isAdmin() || auth()->user()->id == $viewMember->created_by)
                     <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a>
                    <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  onClick="return confirm('Are you sure to delete?')">Delete</a></td> 
