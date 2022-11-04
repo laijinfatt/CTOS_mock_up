@@ -380,7 +380,7 @@ class AuthController extends Controller
             '.'
             <a href="/agent-edit/'.$agent->id.'" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">'.'Edit</a>
             '.'
-            <a href="/agent-delete/'.$agent->id.'" class="btn btn-danger btn-xs"  style="width:35px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+            <a href="/agent-delete/'.$agent->id.'" class="btn btn-danger btn-xs"  style="width:40px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
             '.'
             </td>
             </tr>';
@@ -418,7 +418,7 @@ class AuthController extends Controller
                 '.'
                 <a href="/member-edit/'.$member->id.'" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">'.'Edit</a>
                 '.'
-                <a href="/member-delete/'.$member->id.'" class="btn btn-danger btn-xs"  style="width:35px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+                <a href="/member-delete/'.$member->id.'" class="btn btn-danger btn-xs"  style="width:40px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
                 '.'
                 </td>
                 </tr>';

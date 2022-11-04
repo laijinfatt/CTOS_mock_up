@@ -110,7 +110,7 @@ class BlacklistController extends Controller
                         <td style="white-space: nowrap">
                             <a href="/edit-blacklisted-person/'.$blacklist->id.'" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">'.'Edit</a>
                             '.'
-                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" class="btn btn-danger btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" class="btn btn-danger btn-xs" style="width:40px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
                         </td>
                         <td>'.$blacklist->uName.'</td>
                         <td>'.$blacklist->deleted_by.'</td>
@@ -135,7 +135,7 @@ class BlacklistController extends Controller
                         <td style="white-space: nowrap">
                             <a href="/edit-blacklisted-person/'.$blacklist->id.'" style="width:35px;height:25px; font-size:11px; padding:3px;" class="btn btn-warning btn-xs">'.'Edit</a>
                             '.'
-                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" style="width:35px;height:25px; font-size:11px; padding:3px;" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" style="width:40px;height:25px; font-size:11px; padding:3px;" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
                         </td>
                         <td>'.$blacklist->uName.'</td>
                         <td>'.$blacklist->deleted_by.'</td>

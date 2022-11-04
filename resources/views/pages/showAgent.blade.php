@@ -74,7 +74,7 @@ th{
                     <td>{{ $viewAgent->permission }}</td>
                     <td style='white-space: nowrap'>
                     <a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">Edit</a>
-                    <a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  style="width:35px;height:25px; font-size:11px; padding:3px;" 
+                    <a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  style="width:40px;height:25px; font-size:11px; padding:3px;" 
                     onClick="return confirm('Are you sure to delete?')">Delete</a>
                 </td> 
                 </tr>

@@ -84,7 +84,7 @@
                     <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs" 
                     style="width:35px;height:25px; font-size:11px; padding:3px;">Edit</a>
                    <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  
-                   onClick="return confirm('Are you sure to delete?')" style="width:35px;height:25px; font-size:11px; padding:3px;">Delete</a></td> 
+                   onClick="return confirm('Are you sure to delete?')" style="width:40px;height:25px; font-size:11px; padding:3px;">Delete</a></td> 
                     @else
                     <td>N/A</td> 
                     @endif
