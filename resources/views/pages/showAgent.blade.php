@@ -26,7 +26,7 @@ th{
     }
 
 .long{
-    min-width:127px;
+    min-width:120px;
 }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>    
@@ -73,8 +73,8 @@ th{
                     <td>{{ $viewAgent->gender }}</td>
                     <td>{{ $viewAgent->permission }}</td>
                     <td style='white-space: nowrap'>
-                    <a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs" style="font-size:11px;">Edit</a>
-                    <a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  style="font-size:11px;" 
+                    <a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">Edit</a>
+                    <a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  style="width:35px;height:25px; font-size:11px; padding:3px;" 
                     onClick="return confirm('Are you sure to delete?')">Delete</a>
                 </td> 
                 </tr>

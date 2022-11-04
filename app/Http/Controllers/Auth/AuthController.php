@@ -372,15 +372,15 @@ class AuthController extends Controller
             '<tr>
             <td>'.$agent->name.'</td>
             <td>'.$agent->email.'</td>
-            <td>'.$agent->ic.'</td>
-            <td>'.$agent->handphone_number.'</td>
+            <td class="long">'.$agent->ic.'</td>
+            <td class="long">'.$agent->handphone_number.'</td>
             <td>'.$agent->gender.'</td>
             <td>'.$agent->permission.'</td>
             <td style="white-space: nowrap">
             '.'
-            <a href="/agent-edit/'.$agent->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
+            <a href="/agent-edit/'.$agent->id.'" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">'.'Edit</a>
             '.'
-            <a href="/agent-delete/'.$agent->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+            <a href="/agent-delete/'.$agent->id.'" class="btn btn-danger btn-xs"  style="width:35px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
             '.'
             </td>
             </tr>';
@@ -401,25 +401,44 @@ class AuthController extends Controller
 
         foreach($members as $member)
         {
-            $output.=
-            '<tr>
-            <td>'.$member->name.'</td>
-            <td>'.$member->email.'</td>
-            <td>'.$member->ic.'</td>
-            <td>'.$member->bank_account_number1.'
-                '.$member->bank_account_number2.'
-                '.$member->bank_account_number3.'</td>
-            <td>'.$member->handphone_number.'</td>
-            <td>'.$member->gender.'</td>
-            <td>'.$member->created_by.'</td>
-            <td style="white-space: nowrap">
-            '.'
-            <a href="/member-edit/'.$member->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
-            '.'
-            <a href="/member-delete/'.$member->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
-            '.'
-            </td>
-            </tr>';
+            if(Auth::user()->isAdmin() || Auth::user()->name == $member->created_by)
+            {
+                $output.=
+                '<tr>
+                <td>'.$member->name.'</td>
+                <td>'.$member->email.'</td>
+                <td class="long">'.$member->ic.'</td>
+                <td>'.$member->bank_account_number1.'
+                    '.$member->bank_account_number2.'
+                    '.$member->bank_account_number3.'</td>
+                <td class="long">'.$member->handphone_number.'</td>
+                <td>'.$member->gender.'</td>
+                <td>'.$member->created_by.'</td>
+                <td style="white-space: nowrap">
+                '.'
+                <a href="/member-edit/'.$member->id.'" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">'.'Edit</a>
+                '.'
+                <a href="/member-delete/'.$member->id.'" class="btn btn-danger btn-xs"  style="width:35px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+                '.'
+                </td>
+                </tr>';
+            }
+            else{
+                $output.=
+                '<tr>
+                <td>'.$member->name.'</td>
+                <td>'.$member->email.'</td>
+                <td class="long">'.$member->ic.'</td>
+                <td">'.$member->bank_account_number1.'
+                    '.$member->bank_account_number2.'
+                    '.$member->bank_account_number3.'</td>
+                <td>'.$member->handphone_number.'</td>
+                <td class="long">'.$member->gender.'</td>
+                <td>'.$member->created_by.'</td>
+                <td style="white-space: nowrap"> N/A
+                </td>
+                </tr>';
+            }
         }
         return response($output);
     }

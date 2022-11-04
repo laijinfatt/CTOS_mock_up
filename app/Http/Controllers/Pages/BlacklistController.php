@@ -98,19 +98,19 @@ class BlacklistController extends Controller
                         '<tr>
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
-                        <td>'.$blacklist->handphone_number.'</td>
-                        <td>'.$blacklist->ic.'</td>
-                        <td>'.$blacklist->reason.'</td>
-                        <td>'.$blacklist->remark.'</td>
+                        <td class="long">'.$blacklist->handphone_number.'</td>
+                        <td class="long">'.$blacklist->ic.'</td>
+                        <td class="long">'.$blacklist->reason.'</td>
+                        <td class="long">'.$blacklist->remark.'</td>
                         <td>'.$blacklist->bank_account_number1.'
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
                         <td>'.$blacklist->gender.'</td>
                         <td>'.$blacklist->social_media_account.'</td>
                         <td style="white-space: nowrap">
-                            <a href="/edit-blacklisted-person/'.$blacklist->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
+                            <a href="/edit-blacklisted-person/'.$blacklist->id.'" class="btn btn-warning btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;">'.'Edit</a>
                             '.'
-                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" class="btn btn-danger btn-xs" style="width:35px;height:25px; font-size:11px; padding:3px;" onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
                         </td>
                         <td>'.$blacklist->uName.'</td>
                         <td>'.$blacklist->deleted_by.'</td>
@@ -123,19 +123,19 @@ class BlacklistController extends Controller
                         '<tr style="background-color:#D10000; color:white;">
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
-                        <td>'.$blacklist->handphone_number.'</td>
-                        <td>'.$blacklist->ic.'</td>
-                        <td>'.$blacklist->reason.'</td>
-                        <td>'.$blacklist->remark.'</td>
+                        <td class="long">'.$blacklist->handphone_number.'</td>
+                        <td class="long">'.$blacklist->ic.'</td>
+                        <td class="long">'.$blacklist->reason.'</td>
+                        <td class="long">'.$blacklist->remark.'</td>
                         <td>'.$blacklist->bank_account_number1.'
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
                         <td>'.$blacklist->gender.'</td>
                         <td>'.$blacklist->social_media_account.'</td>
                         <td style="white-space: nowrap">
-                            <a href="/edit-blacklisted-person/'.$blacklist->id.'" class="btn btn-warning btn-xs">'.'Edit</a>
+                            <a href="/edit-blacklisted-person/'.$blacklist->id.'" style="width:35px;height:25px; font-size:11px; padding:3px;" class="btn btn-warning btn-xs">'.'Edit</a>
                             '.'
-                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
+                            <a href="/delete-blacklisted-person/'.$blacklist->id.'" style="width:35px;height:25px; font-size:11px; padding:3px;" class="btn btn-danger btn-xs"  onClick="return confirm("Are you sure to delete?")">'.'Delete</a>
                         </td>
                         <td>'.$blacklist->uName.'</td>
                         <td>'.$blacklist->deleted_by.'</td>
@@ -152,10 +152,10 @@ class BlacklistController extends Controller
                             '<tr>
                             <td>'.$blacklist->name.'</td>
                             <td>'.$blacklist->email.'</td>
-                            <td>'.$blacklist->handphone_number.'</td>
-                            <td>'.$blacklist->ic.'</td>
-                            <td>'.$blacklist->reason.'</td>
-                            <td>'.$blacklist->remark.'</td>
+                            <td class="long">'.$blacklist->handphone_number.'</td>
+                            <td class="long">'.$blacklist->ic.'</td>
+                            <td class="long">'.$blacklist->reason.'</td>
+                            <td class="long">'.$blacklist->remark.'</td>
                             <td>'.$blacklist->bank_account_number1.'
                                 '.$blacklist->bank_account_number2.'
                                 '.$blacklist->bank_account_number3.'</td>
@@ -172,10 +172,10 @@ class BlacklistController extends Controller
                         '<tr style="background-color:#D10000; color:white;">
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
-                        <td>'.$blacklist->handphone_number.'</td>
-                        <td>'.$blacklist->ic.'</td>
-                        <td>'.$blacklist->reason.'</td>
-                        <td>'.$blacklist->remark.'</td>
+                        <td class="long">'.$blacklist->handphone_number.'</td>
+                        <td class="long">'.$blacklist->ic.'</td>
+                        <td class="long">'.$blacklist->reason.'</td>
+                        <td class="long">'.$blacklist->remark.'</td>
                         <td>'.$blacklist->bank_account_number1.'
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
@@ -196,10 +196,10 @@ class BlacklistController extends Controller
                         '<tr>
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
-                        <td>'.$blacklist->handphone_number.'</td>
-                        <td>'.$blacklist->ic.'</td>
-                        <td>'.$blacklist->reason.'</td>
-                        <td>'.$blacklist->remark.'</td>
+                        <td class="long">'.$blacklist->handphone_number.'</td>
+                        <td class="long">'.$blacklist->ic.'</td>
+                        <td class="long">'.$blacklist->reason.'</td>
+                        <td class="long">'.$blacklist->remark.'</td>
                         <td>'.$blacklist->bank_account_number1.'
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>
@@ -219,10 +219,10 @@ class BlacklistController extends Controller
                         '<tr style="background-color:#D10000; color:white;">
                         <td>'.$blacklist->name.'</td>
                         <td>'.$blacklist->email.'</td>
-                        <td>'.$blacklist->handphone_number.'</td>
-                        <td>'.$blacklist->ic.'</td>
-                        <td>'.$blacklist->reason.'</td>
-                        <td>'.$blacklist->remark.'</td>
+                        <td class="long">'.$blacklist->handphone_number.'</td>
+                        <td class="long">'.$blacklist->ic.'</td>
+                        <td class="long">'.$blacklist->reason.'</td>
+                        <td class="long">'.$blacklist->remark.'</td>
                         <td>'.$blacklist->bank_account_number1.'
                             '.$blacklist->bank_account_number2.'
                             '.$blacklist->bank_account_number3.'</td>

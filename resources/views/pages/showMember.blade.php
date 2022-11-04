@@ -26,7 +26,7 @@
          cursor: pointer;
     }
     .long{
-        min-width:127px
+        min-width:120px
     }
     </style>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>     -->
@@ -80,9 +80,11 @@
                     <td class="long">{{ $viewMember->handphone_number }}</td>
                     <td>{{ $viewMember->gender }}</td>
                     <td>{{ $viewMember->created_by }}</td>
-                    @if(auth()->user()->isAdmin() || auth()->user()->id == $viewMember->created_by)
-                    <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs" style="font-size:11px;">Edit</a>
-                   <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  onClick="return confirm('Are you sure to delete?')" style="font-size:11px;">Delete</a></td> 
+                    @if(auth()->user()->isAdmin() || auth()->user()->name == $viewMember->created_by)
+                    <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs" 
+                    style="width:35px;height:25px; font-size:11px; padding:3px;">Edit</a>
+                   <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  
+                   onClick="return confirm('Are you sure to delete?')" style="width:35px;height:25px; font-size:11px; padding:3px;">Delete</a></td> 
                     @else
                     <td>N/A</td> 
                     @endif
