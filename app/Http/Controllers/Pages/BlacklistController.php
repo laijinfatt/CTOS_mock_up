@@ -79,7 +79,13 @@ class BlacklistController extends Controller
     {
         $output = "";
         $blacklists=DB::table('blacklists')->leftJoin('users','blacklists.created_by','=','users.id')
-        ->select('blacklists.*','users.name as uName')->where('blacklists.name','like','%'.$r->search.'%')->get();
+        ->select('blacklists.*','users.name as uName')->where('blacklists.name','like','%'.$r->search.'%')
+        ->orWhere('blacklists.email','like','%'.$r->search.'%')->orWhere('blacklists.handphone_number','like','%'.$r->search.'%')
+        ->orWhere('blacklists.ic','like','%'.$r->search.'%')->orWhere('blacklists.reason','like','%'.$r->search.'%')
+        ->orWhere('blacklists.remark','like','%'.$r->search.'%')->orWhere('blacklists.bank_account_number1','like','%'.$r->search.'%')
+        ->orWhere('blacklists.bank_account_number2','like','%'.$r->search.'%')->orWhere('blacklists.bank_account_number3','like','%'.$r->search.'%')
+        ->orWhere('blacklists.social_media_account','like','%'.$r->search.'%')->orWhere('users.name','like','%'.$r->search.'%')
+        ->orWhere('blacklists.deleted_by','like','%'.$r->search.'%')->paginate(50);
 
         foreach($blacklists as $blacklist)
         {
