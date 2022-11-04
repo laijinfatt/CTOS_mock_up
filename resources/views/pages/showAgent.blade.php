@@ -24,6 +24,10 @@ th{
         font-weight:500; 
          cursor: pointer;
     }
+
+.long{
+    min-width:127px;
+}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>    
 <script type="text/javascript" src="/js/sortTable.js"></script>
@@ -39,16 +43,16 @@ th{
         <br>
         <div class="card">
         <h3>Agents Information</h3><br>
-        <button style="width:70px;" class="btn btn-primary"
+        <button style="width:50px;height:30px; font-size:12px;padding:0;" class="btn btn-primary"
                     onclick= "window.location.href = '/agent-registration';">Create</button>
 
         <div class="col-md-10" style="max-width:99% !important;">
             <input type="search" id="search" name="search" placeholder="Search for names..">
          </div>
      
-        <table id="mylists" class="table table-bordered">
+        <table id="mylists" class="table table-bordered" style="font-size:11px;">
             <thread>
-                <tr class="trhead">
+                <tr class="trhead" style="font-size:12px; font-weight:bold;">
                 <th onclick="sortTable(0)">Name</th>
                 <th onclick="sortTable(1)">Email</th>
                 <th onclick="sortTable(2)">IC</th>
@@ -64,13 +68,13 @@ th{
                 <tr>
                     <td>{{ $viewAgent->name }}</td>
                     <td>{{ $viewAgent->email }}</td>
-                    <td>{{ $viewAgent->ic }}</td>
-                    <td>{{ $viewAgent->handphone_number }}</td>
+                    <td class="long">{{ $viewAgent->ic }}</td>
+                    <td class="long">{{ $viewAgent->handphone_number }}</td>
                     <td>{{ $viewAgent->gender }}</td>
                     <td>{{ $viewAgent->permission }}</td>
                     <td style='white-space: nowrap'>
-                    <a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs">Edit</a>
-                    <a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  
+                    <a href="{{ route('agent.edit',['id'=>$viewAgent->id]) }}" class="btn btn-warning btn-xs" style="font-size:11px;">Edit</a>
+                    <a href="{{ route('agent.delete',['id'=>$viewAgent->id]) }}" class="btn btn-danger btn-xs"  style="font-size:11px;" 
                     onClick="return confirm('Are you sure to delete?')">Delete</a>
                 </td> 
                 </tr>

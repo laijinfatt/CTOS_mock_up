@@ -25,6 +25,9 @@
         font-weight:500; 
          cursor: pointer;
     }
+    .long{
+        min-width:127px
+    }
     </style>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>     -->
 <script type="text/javascript" src="/js/sortTable.js"></script>
@@ -43,14 +46,14 @@
     @if (auth()->user()->isAgent() && auth()->user()->permission == '2')
 
     @else
-    <button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/user-registration';">Create</button>
+    <button style="width:50px;height:30px; font-size:12px;padding:0;" class="btn btn-primary" onclick= "window.location.href = '/user-registration';">Create</button>
     @endif
 
     <div class="col-md-10" style="max-width:99% !important;">
         <input type="search" id="search" name="search" placeholder="Search for names..">
     </div>
 
-   <table id="mylists"class="table table-bordered">
+   <table id="mylists"class="table table-bordered" style="font-size:11px;">
             <thread>
                 <tr class="trhead">
                 <th onclick="sortTable(0)">Name</th>
@@ -69,17 +72,17 @@
                 <tr>
                     <td>{{ $viewMember->name }}</td>
                     <td>{{ $viewMember->email }}</td>
-                    <td>{{ $viewMember->ic }}</td>
+                    <td class="long">{{ $viewMember->ic }}</td>
                     <td>{{ $viewMember->bank_account_number1 }}
                         {{ $viewMember->bank_account_number2 }}
                         {{ $viewMember->bank_account_number3 }}
                     </td>
-                    <td>{{ $viewMember->handphone_number }}</td>
+                    <td class="long">{{ $viewMember->handphone_number }}</td>
                     <td>{{ $viewMember->gender }}</td>
                     <td>{{ $viewMember->created_by }}</td>
                     @if(auth()->user()->isAdmin() || auth()->user()->id == $viewMember->created_by)
-                    <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs">Edit</a>
-                   <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  onClick="return confirm('Are you sure to delete?')">Delete</a></td> 
+                    <td  style='white-space: nowrap'><a href="{{ route('member.edit',['id'=>$viewMember->id]) }}" class="btn btn-warning btn-xs" style="font-size:11px;">Edit</a>
+                   <a href="{{ route('member.delete',['id'=>$viewMember->id]) }}" class="btn btn-danger btn-xs"  onClick="return confirm('Are you sure to delete?')" style="font-size:11px;">Delete</a></td> 
                     @else
                     <td>N/A</td> 
                     @endif

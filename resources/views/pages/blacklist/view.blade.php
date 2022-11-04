@@ -8,6 +8,7 @@
     .trhead{
         background-color: #37758f;
         color:white;
+        font
     }
 
     tr:nth-child(even) {
@@ -20,6 +21,9 @@
         font-weight:500; 
          cursor: pointer;
     }
+    .long{
+        min-width:127px;
+    }
 
     </style>
 
@@ -27,8 +31,7 @@
 <script type="text/javascript" src="/js/sortTable.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="{{ url('css/search.css') }}">
-<div class="row">
-    <div class="col-sm-1"></div>
+ <div class="row" style=" margin-left:70px !important;">
     <div class="col-sm-6">
         <br>
         <div class="card-body" style="padding-top:0 !important;padding-left:10px !important;">
@@ -39,7 +42,7 @@
             @endif   
        <a href="{{route('blacklist.view')}}" style="color:black; text-decoration:none;"><h3>Blacklists</h3></a>
        @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
-            <br><button style="width:70px;" class="btn btn-primary" onclick= "window.location.href = '/add-to-blacklist';">Create</button>                        
+            <br><button style="width:50px;height:30px; font-size:12px;padding:0;" class="btn btn-primary" onclick= "window.location.href = '/add-to-blacklist';">Create</button>                        
             @endif 
 
     <!-- Search -->
@@ -49,9 +52,9 @@
 
 
       <!-- Table -->
-        <table  id="mylists" class="table table-bordered" style="margin-top:10px;">
+        <table  id="mylists" class="table table-bordered" style="margin-top:10px; font-size:11px;">
             <thread>
-                <tr class="trhead">
+                <tr class="trhead" style="font-size:12px; font-weight:bold;">
                     <!-- <th style='white-space: nowrap'>Name
                          <a href="{{route('blacklist.view.name')}}" style="text-decoration:none; color:white;">&#8593</a> 
                          <a href="{{route('blacklist.view.name.desc')}}" style="text-decoration:none; color:white;">&#8595</a> 
@@ -78,9 +81,9 @@
                 <tr style="background-color:#D10000; color:white;">
                     <td>{{ $viewBlacklist->name }}</td>
                     <td>{{ $viewBlacklist->email }}</td>
-                    <td>{{ $viewBlacklist->handphone_number }}</td>
-                    <td>{{ $viewBlacklist->ic }}</td>
-                    <td>{{ $viewBlacklist->reason }}</td>
+                    <td class="long">{{ $viewBlacklist->handphone_number }}</td>
+                    <td class="long">{{ $viewBlacklist->ic }}</td>
+                    <td class="long">{{ $viewBlacklist->reason }}</td>
                     <td>{{ $viewBlacklist->remark }}</td>
                     <td>{{ $viewBlacklist->bank_account_number1 }}
                         {{ $viewBlacklist->bank_account_number2 }}
@@ -91,8 +94,8 @@
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
                     <td style='white-space: nowrap'>
                         @if(auth()->user()->isAdmin() || auth()->user()->id == $viewBlacklist->created_by)
-                        <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs">Edit</a>
-                        <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" id="rowClick "class="btn btn-danger btn-xs"
+                        <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs" style="font-size:11px;">Edit</a>
+                        <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" id="rowClick "class="btn btn-danger btn-xs" style="font-size:11px;"
                         onClick="return confirm('Are you sure to delete?')">Delete</a>
                         @else
                         N/A
@@ -106,9 +109,9 @@
                     <tr>
                     <td>{{ $viewBlacklist->name }}</td>
                     <td>{{ $viewBlacklist->email }}</td>
-                    <td>{{ $viewBlacklist->handphone_number }}</td>
-                    <td>{{ $viewBlacklist->ic }}</td>
-                    <td>{{ $viewBlacklist->reason }}</td>
+                    <td class="long">{{ $viewBlacklist->handphone_number }}</td>
+                    <td class="long">{{ $viewBlacklist->ic }}</td>
+                    <td class="long">{{ $viewBlacklist->reason }}</td>
                     <td>{{ $viewBlacklist->remark }}</td>
                     <td>{{ $viewBlacklist->bank_account_number1 }}
                         {{ $viewBlacklist->bank_account_number2 }}
@@ -119,9 +122,9 @@
                     @if(auth()->user()->isAdmin() || auth()->user()->isAgent())
                     <td style='white-space: nowrap'>
                         @if(auth()->user()->isAdmin() || auth()->user()->id == $viewBlacklist->created_by)
-                        <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs">Edit</a>
+                        <a href="{{ route('edit.blacklist',['id'=>$viewBlacklist->id]) }}" class="btn btn-warning btn-xs" style="font-size:11px;">Edit</a>
                         <a href="{{ route('blacklist.delete',['id'=>$viewBlacklist->id]) }}" id="rowClick "class="btn btn-danger btn-xs"
-                        onClick="return confirm('Are you sure to delete?')">Delete</a>
+                        onClick="return confirm('Are you sure to delete?')" style="font-size:11px;">Delete</a>
                         @else
                         N/A
                         @endif
